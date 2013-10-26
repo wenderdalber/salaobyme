@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap-min.css"?>
+<?page title="Salãoby-me - Beleza em primeiro lugar!" ?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="salaobyme.PrincipalComposer" style="margin:auto" width="900px">
+    
+    <include src="elementos.zul" />
+
+		<panel id="panel" title="Pesquisa salões" framable="false" width="900px"         
+		maximizable="false" border="normal" collapsible="false" draggable="false">
+        	<panelchildren>
+				<grid id="gridDados">
+				<rows>
+					<row>
+						<label class="lbl" value="Salão" />
+						<textbox id="nome" placeholder="ex: Salão A, Salão B..."/>
+				</row>
+				<row>
+				<label class="lbl" value="Horário" />
+				        <combobox id="cmbHorario" placeholder="Selecione">
+		        		    <comboitem value="Selecione" label="Selecione" />
+		        			<comboitem value="08:00" label="08:00" />
+		        			<comboitem value="09:00" label="09:00" />
+		        			<comboitem value="10:00" label="10:00" />
+		        			<comboitem value="11:00" label="11:00" />       			
+        			</combobox>
+				</row>
+				<row>
+				<label class="lbl" value="Data" />
+					<datebox id="data" placeholder="99/99/9999"/>
+				</row>
+				<row>
+					<label id="lblNomeUsuario" />
+					<label id="lblEmailUsuario" />
+				</row>
+				</rows>
+			</grid>
+			<button label="Buscar" id="btnBuscar" class="btn btn-large btn-warning"></button>
+			</panelchildren>
+		</panel>
+
+		<div class="espaco"></div>
+		
+		<listbox id="listaSaloes" sclass="grid" emptyMessage="Nenhum salão no sistema!"></listbox>
+		
+		<div class="espaco"></div>
+		
+		<div class="div">
+			<html><center>Salãoby.me - Todos os direitos reservados (2013)</center></html>
+		</div>
+
+    </window>
+
+</zk>

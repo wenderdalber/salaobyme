@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap-min.css"?>
+<?page title="Cadastrar Salao" ?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="salaobyme.SalaoComposer" style="margin:auto" width="900px">
+
+
+      <div class="espaco"></div>
+      <panel id="panel" title="Dados do Salao" framable="true" width="900px"         
+		maximizable="true" border="normal" collapsible="true" draggable="true">
+        <panelchildren>
+		<grid id="gridDados">
+			
+			<rows>
+				<row>
+					<label
+						value="${message(code:'salao.codigo.label',default:'Código')}" visible="false" />
+					<intbox id="id" value="0" visible="false" />
+				</row>
+				<row>
+					<label
+						value="${message(code:'salao.nome.label',default:'Nome do Salao')}" />
+					<textbox id="nome" maxlength="100" placeholder="Nome do Salao" constraint="no empty: Entre com nome do seu salao" />					
+				<hbox>
+						<image src="/images/skin/information.png" tooltip="nom"
+							style="cursor: help" />
+						<label value="passe o mouse!"
+							tooltip="nom" />
+					</hbox>		
+				</row>
+				<row>
+					<label
+						value="${message(code:'salao.cnpj.label',default:'CNPJ')}" />
+					<textbox id="cnpj" placeholder="99.999/9999-99" constraint="no empty: Entre com seu cnpj" />
+				<hbox>
+						<image src="/images/skin/information.png" tooltip="cn"
+							style="cursor: help" />
+						<label value="passe o mouse!"
+							tooltip="cn" />
+					</hbox>		
+				</row>
+				<row>
+					<label
+						value="${message(code:'endereco.logradouro.label',default:'Logradouro')}" />
+					<textbox id="logradouro" placeholder="Rua, Av." constraint="no empty: Entre com o endereco do seu salao" />
+				<hbox>
+						<image src="/images/skin/information.png" tooltip="log"
+							style="cursor: help" />
+						<label value="passe o mouse!"
+							tooltip="log" />
+					</hbox>		
+				</row>
+				<row>
+					<label
+						value="${message(code:'endereco.numero.label',default:'Numero')}" />
+					<intbox id="numero" placeholder="Nº" constraint="no empty: Entre com o numero" />
+				<hbox>
+						<image src="/images/skin/information.png" tooltip="num"
+							style="cursor: help" />
+						<label value="passe o mouse!"
+							tooltip="num" />
+					</hbox>		
+				</row>
+				<row>
+					<label
+						value="${message(code:'endereco.bairro.label',default:'Bairro')}" />
+					<textbox id="bairro" placeholder="Bairro" constraint="no empty: Entre com o bairro" />
+				<hbox>
+						<image src="/images/skin/information.png" tooltip="bai"
+							style="cursor: help" />
+						<label value="passe o mouse!"
+							tooltip="bai" />
+					</hbox>		
+				</row>
+				<row>
+					<label
+						value="${message(code:'endereco.cidade.label',default:'Cidade')}" />
+					<textbox id="cidade" placeholder="Cidade" constraint="no empty: Entre com a cidade" />
+				<hbox>
+						<image src="/images/skin/information.png" tooltip="cid"
+							style="cursor: help" />
+						<label value="passe o mouse!"
+							tooltip="cid" />
+					</hbox>		
+				</row>
+				<row>
+				<label
+					value="${message(code:'endereco.estado.label',default:'Estado')}" />
+					<textbox id="estado" placeholder="Estado" constraint="no empty: Entre com o estado" />
+				</row>
+				
+			</rows>
+
+		</grid>
+		
+		<menupopup id="editPopup">
+		<menuitem label="ClearAll" onClick="intro.value=null" />
+		<menu label="QuickText">
+			<menupopup>
+				<menuitem label="Everything is OK!"
+					onClick="intro.value=intro.value + self.label" />
+				<menuitem label="Thank you very much!"
+					onClick="intro.value=intro.value + self.label" />
+				<menuitem label="I'm on a business trip!"
+					onClick="intro.value=intro.value + self.label" />
+				<menuitem label="I'm busy now!"
+					onClick="intro.value=intro.value + self.label" />
+			</menupopup>
+		</menu>
+	</menupopup>
+	<popup id="nom" width="300px">
+		<html>
+			Entre com seu nome! Através dele os salões do sistema poderão
+			te encontrar de maneira mais fácil e pessoal.
+		</html>
+	</popup>
+		<popup id="em" width="300px">
+		<html>
+			Entre com seu e-mail, através dele você pode realizar reservas,
+			além de ter acesso exclusivo a promoções.
+		</html>
+	</popup>
+		<popup id="tel" width="300px">
+		<html>
+			Entre com seu telefone.
+		</html>
+	</popup>
+	<popup id="cel" width="300px">
+		<html>
+			Entre com seu celular, através dele você pode receber sms
+			com promoções e realizar reservas de maneira mais eficiente
+			e segura.
+		</html>
+	</popup>
+	<popup id="sen" width="300px">
+		<html>
+			Entre com sua nova senha. Ela é o seu acesso ao sistema de reservas
+			para salões de beleza mais completo do mercado.
+		</html>
+	</popup>      	
+		
+		<button id="btnSalvar" class="btn btn-success">Salvar</button>
+		<button id="btnCancelar" class="btn btn-danger">Cancelar</button>
+		
+		</panelchildren>
+		</panel>
+		<div class="espaco"></div>
+<div class="div">
+<html><center>Salãoby.me - Todos os direitos reservados (2013)</center></html>
+</div>
+        
+
+    </window>
+
+</zk>

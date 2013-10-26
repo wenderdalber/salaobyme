@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap-min.css"?>
+<?page title="Salaoby.me - Entrar" ?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+	<style>
+		.divPrincipal
+		{
+			margin:auto;
+			widht: 450px;
+			height: auto;
+			padding: 200px 0 0 300px;
+		}
+	</style>
+
+    <window apply="salaobyme.LoginComposer" style="margin:auto" width="900px">
+    	
+    	<label style="color: #cc0000;" value="Usuário e/ou senha inválidos" if="#{param.msg=='ERROR'}" />
+		<label style="color: #cc0000;" value="Você não tem permissão para acessar a página. Faça o login." if="#{param.msg=='ACESSONEGADO'}" />
+		<label style="color: #cc0000;" value="Volte sempre!." if="#{param.msg=='LOGOUT'}" />
+
+		<h:form method="POST" action="${resource(file: 'j_spring_security_check')}">
+		
+			<div class="divPrincipal">
+				<div>
+					<html>
+						<h2>Salão by Me</h2>
+					</html>
+				</div>
+				<div>
+					<textbox name="j_username" id="j_username" placeholder="nome de usuário" />
+				</div>
+				<div>
+					<textbox name="j_password" type="password" id="j_password" placeholder="******" />
+				</div>
+				<div>
+					<button class="btn btn-primary" type="submit" label="Entrar" />
+				</div>
+			</div>
+			
+				<sec:ifNotLoggedIn>
+  					<a href="#">Esqueci minha senha?</a>
+				</sec:ifNotLoggedIn>
+			
+		</h:form>
+    	  
+    </window>
+
+</zk>

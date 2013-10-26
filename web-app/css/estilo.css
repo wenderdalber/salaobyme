@@ -1,0 +1,120 @@
+body
+{
+	background-color: #FFEBCD;
+}
+
+.div
+{
+	background-color:#EDEDED;
+	height:35px;
+	border-radius: 10px;
+	font: 14px Tahoma;
+	font-weight: bold;	
+}
+
+.grid
+{
+	border-radius: 10px;
+}
+
+.espaco
+{
+	height: 10px;
+}
+
+	.menu ul {
+			padding:0px;
+			margin:0px;
+			float: left;
+			width: 100%;
+			background-color:#EDEDED;
+			list-style:none;
+			font: 14px Tahoma;
+			font-weight: bold;
+			height: 35px;
+			border-radius: 10px;
+		}
+ 
+		.menu ul li { display: inline; }
+ 
+		.menu ul li a {
+			background-color:#EDEDED;
+			color: #333;
+			text-decoration: none;
+			border-bottom:3px solid #EDEDED;
+			padding: 2px 10px;
+			float:left;
+		}
+ 
+		.menu ul li a:hover {
+			background-color:#D6D6D6;
+			color: #6D6D6D;
+			border-bottom:3px solid #EA0000;
+		}
+		
+		
+/*Login*/
+
+.login
+{
+	position: absolute;
+	padding: 10px 10px 10px 10px;
+	border-radius: 10px;
+	border: solid 2px;
+	border-color: #fff;
+	width: 350px;
+	height: 200px;
+	font: 14pt Arial;
+	font-weight: bold;
+	background-color: #FFE4C4;
+}
+
+.total
+{
+	padding: 100px 10px 0 450px;
+}
+
+.descer
+{
+	padding: 15px 0 0 90px;
+}
+
+.titulo
+{
+	width: 600px;
+	height: 75px;
+	padding: 0 0 0 100px;
+	text-shadow:#000 1px -1px 2px, #000 -1px 1px 2px, #000 1px 1px 2px, #000 -1px -1px 2px;
+	color: #000;
+}
+
+.borda-2px {}
+
+.lbl
+{
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 14pt;
+	text-align: justify;
+}
+
+.texto
+{
+	font-family: Arial;
+	font-size: 10pt;
+	text-align: justify;
+}
+
+.txt
+{
+	font-style: italic;
+	width: 150px;
+	height: 25px;
+}
+
+.cmb
+{
+	font-style: italic;
+	width: 75px;
+	height: 25px;
+}

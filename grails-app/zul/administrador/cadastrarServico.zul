@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap-min.css"?>
+<?page title="Salãoby-me - Beleza em primeiro lugar!" ?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+	<window apply="salaobyme.CadastrarServicoComposer"
+		style="margin:auto" width="900px">
+
+		<include src="../elementos.zul" />
+		<panel id="panel" title="Pesquisa salões" framable="false"
+			width="900px" maximizable="false" border="normal" collapsible="false"
+			draggable="false">
+			<panelchildren>
+				<vlayout>
+					<grid>
+						<columns>
+							<column>
+								<label>
+									Escreva ou escolha um serviço
+								</label>
+							</column>
+							<column>
+								<combobox id="cmbCadastrarServico"
+									class="" autodrop="true" mold="rounded" buttonVisible="false" />
+							</column>
+							<column>
+								<button id="btnAdicionarServico" class="btn btn-success">Salvar</button>
+							</column>
+						</columns>
+					</grid>
+
+					<div>
+						<listbox id="lstServicos"
+							emptyMessage="Nenhum Serviço encontrada">
+
+							<listhead>
+								<listheader sort="auto" label="Serviço" />
+								<listheader sort="auto" label="Ativo" />
+								<listheader sort="auto" label="Excluir" />
+							</listhead>
+
+						</listbox>
+					</div>
+				</vlayout>
+			</panelchildren>
+		</panel>
+	</window>
+
+</zk>

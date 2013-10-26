@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap-min.css"?>
+<?page title="Salaoby.me - Cadastrar Usuário" ?>
+
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="salaobyme.UsuarioComposer" style="margin:auto" width="900px">
+
+	<include src="../elementos.zul" />
+
+ <div class="espaco"></div>
+ 
+  <panel id="panel" title="Cadastro de clientes" framable="true" width="900px"         
+		maximizable="true" border="normal" collapsible="true" draggable="true">
+        <panelchildren>
+		<grid id="gridDados">
+			
+			<rows>
+				<row>
+					<label
+						value="${message(code:'cliente.codigo.label',default:'Código')}" visible="false" />
+					<intbox id="id" value="0" visible="false" />
+				</row>
+				<row>
+					<label
+						value="${message(code:'cliente.nome.label',default:'Nome')}" />
+					<textbox id="nome" maxlength="100" placeholder="Nome" constraint="no empty: Entre com seu nome" />					
+				<hbox>
+						<image src="/images/skin/information.png" tooltip="nom"
+							style="cursor: help" />
+						<label value="passe o mouse!"
+							tooltip="nom" />
+					</hbox>		
+				</row>
+				<row>
+					<label
+						value="${message(code:'cliente.email.label',default:'E-mail')}" />
+					<textbox id="email" placeholder="nome@exemplo.com.br" constraint="no empty: Entre com seu e-mail" />
+				<hbox>
+						<image src="/images/skin/information.png" tooltip="em"
+							style="cursor: help" />
+						<label value="passe o mouse!"
+							tooltip="em" />
+					</hbox>		
+				</row>
+				<row>
+					<label
+						value="${message(code:'cliente.telefone.label',default:'Telefone')}" />
+					<textbox id="telefone" placeholder="(99) 9999-9999" constraint="no empty: Entre com seu telefone" />
+				<hbox>
+						<image src="/images/skin/information.png" tooltip="tel"
+							style="cursor: help" />
+						<label value="passe o mouse!"
+							tooltip="tel" />
+					</hbox>		
+				</row>
+				<row>
+					<label
+						value="${message(code:'cliente.celular.label',default:'Celular')}" />
+					<textbox id="celular" placeholder="(99) 99999-9999" constraint="no empty: Entre com seu celular" />
+				<hbox>
+						<image src="/images/skin/information.png" tooltip="cel"
+							style="cursor: help" />
+						<label value="passe o mouse!"
+							tooltip="cel" />
+					</hbox>		
+				</row>
+				<row>
+					<label
+						value="${message(code:'cliente.username.label',default:'Nome de Usuário')}" />
+					<textbox id="username" placeholder="nome de usuário" constraint="no empty: Entre com seu nome de usuário" />
+				<hbox>
+						<image src="/images/skin/information.png" tooltip="sen"
+							style="cursor: help" />
+						<label value="passe o mouse!"
+							tooltip="sen" />
+					</hbox>		
+				</row>
+				<row>
+					<label
+						value="${message(code:'cliente.password.label',default:'Senha')}" />
+					<textbox id="password" type="password" placeholder="******" constraint="no empty: Entre com sua senha" />
+				<hbox>
+						<image src="/images/skin/information.png" tooltip="sen"
+							style="cursor: help" />
+						<label value="passe o mouse!"
+							tooltip="sen" />
+					</hbox>		
+				</row>
+				<row>
+					<label id="lblErro" />
+				</row>
+			</rows>
+
+		</grid>
+		
+		<menupopup id="editPopup">
+		<menuitem label="ClearAll" onClick="intro.value=null" />
+		<menu label="QuickText">
+			<menupopup>
+				<menuitem label="Everything is OK!"
+					onClick="intro.value=intro.value + self.label" />
+				<menuitem label="Thank you very much!"
+					onClick="intro.value=intro.value + self.label" />
+				<menuitem label="I'm on a business trip!"
+					onClick="intro.value=intro.value + self.label" />
+				<menuitem label="I'm busy now!"
+					onClick="intro.value=intro.value + self.label" />
+			</menupopup>
+		</menu>
+	</menupopup>
+	<popup id="nom" width="300px">
+		<html>
+			Entre com seu nome! Através dele os salões do sistema poderão
+			te encontrar de maneira mais fácil e pessoal.
+		</html>
+	</popup>
+		<popup id="em" width="300px">
+		<html>
+			Entre com seu e-mail, através dele você pode realizar reservas,
+			além de ter acesso exclusivo a promoções.
+		</html>
+	</popup>
+		<popup id="tel" width="300px">
+		<html>
+			Entre com seu telefone.
+		</html>
+	</popup>
+	<popup id="cel" width="300px">
+		<html>
+			Entre com seu celular, através dele você pode receber sms
+			com promoções e realizar reservas de maneira mais eficiente
+			e segura.
+		</html>
+	</popup>
+	<popup id="sen" width="300px">
+		<html>
+			Entre com sua nova senha. Ela é o seu acesso ao sistema de reservas
+			para salões de beleza mais completo do mercado.
+		</html>
+	</popup>
+		<button class="btn btn-success" id="btnSalvar" label="Salvar"></button>
+		<button class="btn btn-danger" id="btnCancelar" label="Cancelar"></button>        	
+		</panelchildren>
+		</panel>
+    <div class="espaco"></div>
+<div class="div">
+<html><center>Salãoby.me - Todos os direitos reservados (2013)</center></html>
+</div>
+    </window>
+
+</zk>

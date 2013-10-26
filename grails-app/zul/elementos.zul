@@ -1,0 +1,15 @@
+<window apply="salaobyme.ElementosComposer"
+		style="margin:auto" width="900px">
+<div class="navbar">
+  <div class="navbar-inner">
+    <html><a class="brand" href="http://localhost:8080/salaobyme2/principal.zul">Salãoby.me</a>
+    <ul class="nav">
+      <li class="active"><a href="http://localhost:8080/salaobyme2/principal.zul">Home</a></li>
+      <li><a href="#">Pesquisar</a></li>
+      <li><a href="#">Contato</a></li>
+      <li><a href="http://localhost:8080/salaobyme2/Login.zul">Login</a></li>
+    </ul>
+    </html>
+  </div>
+</div>
+</window>
