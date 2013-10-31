@@ -13,6 +13,7 @@
 
     <window apply="salaobyme.SalaoComposer" style="margin:auto" width="900px">
 
+<include src="../elementos.zul" />
 
       <div class="espaco"></div>
       <panel id="panel" title="Dados do Salao" framable="true" width="900px"         

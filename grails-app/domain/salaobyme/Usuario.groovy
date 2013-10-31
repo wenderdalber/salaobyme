@@ -9,8 +9,7 @@ class Usuario {
 	boolean enabled
 	boolean accountExpired
 	boolean accountLocked
-	boolean passwordExpired
-	Pessoa pessoa
+	boolean passwordExpired	
 	Proprietario proprietario
 	
 	static hasOne = [Proprietario]
@@ -19,7 +18,6 @@ class Usuario {
 	static constraints = {
 		username blank: false
 		password blank: false
-		pessoa nullable:true
 	}
 
 	static mapping = {

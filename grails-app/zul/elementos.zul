@@ -7,9 +7,19 @@
       <li class="active"><a href="http://localhost:8080/salaobyme2/principal.zul">Home</a></li>
       <li><a href="#">Pesquisar</a></li>
       <li><a href="#">Contato</a></li>
-      <li><a href="http://localhost:8080/salaobyme2/Login.zul">Login</a></li>
+      <li><a href="http://localhost:8080/salaobyme/Login.zul">Login</a></li>
     </ul>
     </html>
   </div>
+</div>
+
+<div>
+	<div id="logar">
+		<a href="http://localhost:8080/salaobyme/Login.zul" class="btn btn-primary">Entrar</a>
+		<label id="lblNomeUsuario" />
+	</div>
+	<div id="deslogar">
+		<button class="btn btn-danger">Sair</button>
+	</div>
 </div>
 </window>

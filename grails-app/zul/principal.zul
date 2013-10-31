@@ -15,6 +15,14 @@
     
     <include src="elementos.zul" />
 
+		<sec:ifAnyGranted roles="ROLE_USER,ROLE_ADMIN">
+			<label id="lbNomeUsuario" />
+			<space orient="horizontal" />				
+			<div style="float:right">
+				<a href="${resource(file: 'j_spring_security_logout')}">Sair</a>
+			</div>		
+		</sec:ifAnyGranted>
+
 		<panel id="panel" title="Pesquisa salões" framable="false" width="900px"         
 		maximizable="false" border="normal" collapsible="false" draggable="false">
         	<panelchildren>
