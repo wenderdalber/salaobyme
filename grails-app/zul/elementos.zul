@@ -1,25 +1,28 @@
 <window apply="salaobyme.ElementosComposer"
 		style="margin:auto" width="900px">
-<div class="navbar">
+<div width="150px" style="float:left">
+	<html><img src="../images/logo.png" style="width=350px; height=40px" /></html>
+</div>
+<div class="navbar" width="750px" style="float:left">
   <div class="navbar-inner">
-    <html><a class="brand" href="http://localhost:8080/salaobyme2/principal.zul">Salãoby.me</a>
+    <html><a class="brand" href="http://localhost:8080/salaobyme/principal.zul">Salãoby.me</a>
     <ul class="nav">
-      <li class="active"><a href="http://localhost:8080/salaobyme2/principal.zul">Home</a></li>
-      <li><a href="#">Pesquisar</a></li>
+      <li class="active"><a href="http://localhost:8080/salaobyme/principal.zul">Home</a></li>
+      <li><a href="http://localhost:8080/salaobyme/pesquisa.zul">Pesquisar</a></li>
       <li><a href="#">Contato</a></li>
-      <li><a href="http://localhost:8080/salaobyme/Login.zul">Login</a></li>
     </ul>
     </html>
   </div>
 </div>
-
-<div>
-	<div id="logar">
-		<a href="http://localhost:8080/salaobyme/Login.zul" class="btn btn-primary">Entrar</a>
-		<label id="lblNomeUsuario" />
-	</div>
 	<div id="deslogar">
-		<button class="btn btn-danger">Sair</button>
+		<label id="lblNomeUsuario"/>
+		<label id="lblEmailUsuario"/>
+		<a href="${resource(file: 'j_spring_security_logout')}" class="btn btn-danger">Sair</a>
 	</div>
-</div>
+	<div id="perfilProprietario">
+		<a href="http://localhost:8080/salaobyme/administrador/meuPerfil.zul" class="btn btn-success">Perfil</a>
+	</div>
+	<div id="perfilUsuario">
+		<a href="http://localhost:8080/salaobyme/perfilUsuario.zul" class="btn btn-success">Perfil</a>
+	</div>
 </window>

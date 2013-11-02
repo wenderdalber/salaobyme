@@ -6,19 +6,37 @@
 <?link rel="stylesheet" type="text/css" href="/css/bootstrap-min.css"?>
 <?page title="Meu Perfil" ?>
 
+
 <zk xmlns="http://www.zkoss.org/2005/zul"
     xmlns:h="http://www.w3.org/1999/xhtml"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
-
+	
+	<style>
+	.espacoVertical
+	{
+		width: 100px;
+		height: 30px;
+		float:left;
+	}
+</style>
+	
     <window apply="salaobyme.MeuPerfilComposer" style="margin:auto" width="900px">
 
 	<include src="../elementos.zul" />
 	
 		<div class="espaco"></div>
-        <listbox id="listaProprietario" sclass="grid" emptyMessage="Erro! Você não está cadastrado">
-		</listbox>	
-	<panel id="panel" title="Alterar Proprietario" visible="false" framable="true" width="900px"         
+		<label value="Meus Dados" class="btn btn-primary" />
+		<div class="espaco"></div>
+        <listbox style="float:left" id="listaProprietario" width="600px" sclass="grid" emptyMessage="Erro! Você não está cadastrado">
+		</listbox>
+		<div style="float:left" width="230px">
+			<a href="http://localhost:8080/salaobyme/administrador/meuPerfil.zul" class="btn btn-primary">Gerenciar Salão</a>
+			<a href="http://localhost:8080/salaobyme/administrador/cadastrarServico.zul" class="btn btn-primary">Cadastrar Serviços</a>
+			<a href="http://localhost:8080/salaobyme/administrador/salao.zul" class="btn btn-primary">Cadastrar Salão</a>
+			<a href="http://localhost:8080/salaobyme/administrador/horarios.zul" class="btn btn-primary">Cadastrar Horários</a>
+		</div>	
+	<panel id="panel" title="Alterar Proprietario" visible="false" framable="true" width="600px"         
 		maximizable="true" border="normal" collapsible="true" draggable="true">
         <panelchildren>
 		<grid id="gridDados">
@@ -148,9 +166,6 @@
 		</panelchildren>
 		</panel>
 		<div class="espaco"></div>
-<div class="div">
-<html><center>Salãoby.me - Todos os direitos reservados (2013)</center></html>
-</div>
 
     </window>
 

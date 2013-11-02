@@ -20,21 +20,13 @@ class PrincipalComposer extends zk.grails.Composer {
 	@Wire
 	Div logar, deslogar
 	
-	def springSecurityService
+	
 	
     def afterCompose = { window ->
         // initialize components here
 		listarSaloes()
 		
-		Usuario usuario = Usuario.findByUsername(springSecurityService.principal.username)
 		
-		session.setAttribute("usuario",usuario)
-		
-		lblNomeUsuario.value="Bem-vindo, "+usuario.username
-		
-		if (usuario.authorities.find({it.authority == "ROLE_ADMIN"})){
-			lblEmailUsuario.value="Logado como proprietário"
-		}
     }
 	
 	void listarSaloes() {

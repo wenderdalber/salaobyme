@@ -14,7 +14,7 @@
 
     <window apply="salaobyme.UsuarioComposer" style="margin:auto" width="900px">
 
-	<include src="../elementos.zul" />
+	<include src="../elementosFora.zul" />
 
  <div class="espaco"></div>
  

@@ -57,18 +57,21 @@ class ProprietarioComposer extends zk.grails.Composer {
 		proprietario?.celular=celular.value
 		proprietario?.tipo = 0
 		
-		
-		
 		usuario.username = username.value
 		usuario.password = password.value
 		//proprietario.usuario = usuario
 		usuario.proprietario = proprietario
 		
-			if (!proprietario.hasErrors() && !usuario.hasErrors())
+		def permissaoAdmin = Permissao.findByAuthority('ROLE_ADMIN') ?: new Permissao(authority: 'ROLE_ADMIN').save(failOnError: true)
+		
+			if (/*!proprietario.hasErrors() &&*/ !usuario.hasErrors())
 			{
-				proprietario.save(flush:true)
+				//proprietario.save(flush:true)
 				if(usuario.save(flush:true))
 				{
+					if (!usuario.authorities.contains(permissaoAdmin)) {
+						UsuarioPermissao.create usuario, permissaoAdmin
+					}
 					Messagebox.show("Cadastro de Proprietario efetuado com sucesso! Realize login no sistema!")
 					lblErro.value = ""
 				}

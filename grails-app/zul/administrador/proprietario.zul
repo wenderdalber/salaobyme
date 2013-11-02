@@ -31,7 +31,7 @@
     </script>
 
 
-	<include src="../elementos.zul" />
+	<include src="../elementosFora.zul" />
 	
 	<panel id="panel" title="Cadastro de Proprietario" framable="true" width="900px"         
 		maximizable="false" border="normal" collapsible="false" draggable="false">

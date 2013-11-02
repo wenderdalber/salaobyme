@@ -13,7 +13,7 @@
 
     <window apply="salaobyme.PerfilUsuarioComposer" width="900px" style="margin:auto">
 
-<include src="/usuario/elementos.zul" />
+<include src="elementos.zul" />
 
 <sec:ifAnyGranted roles="ROLE_USER,ROLE_ADMIN">
 			<label id="lbUsuario" />

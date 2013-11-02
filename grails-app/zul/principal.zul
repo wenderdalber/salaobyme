@@ -4,7 +4,7 @@
 <?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
 <?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
 <?link rel="stylesheet" type="text/css" href="/css/bootstrap-min.css"?>
-<?page title="Salãoby-me - Beleza em primeiro lugar!" ?>
+<?page title="Salãoby-me - Beleza à um click de distância!" ?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul"
     xmlns:h="http://www.w3.org/1999/xhtml"
@@ -19,7 +19,6 @@
 			<label id="lbNomeUsuario" />
 			<space orient="horizontal" />				
 			<div style="float:right">
-				<a href="${resource(file: 'j_spring_security_logout')}">Sair</a>
 			</div>		
 		</sec:ifAnyGranted>
 

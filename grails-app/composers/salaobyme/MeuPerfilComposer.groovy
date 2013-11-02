@@ -7,6 +7,8 @@ import org.zkoss.zk.ui.event.*
 import org.zkoss.zk.ui.select.annotation.*
 import org.zkoss.zul.*
 
+import salaobyme.Usuario;
+
 class MeuPerfilComposer extends zk.grails.Composer {
 
 	@Wire
@@ -30,6 +32,10 @@ class MeuPerfilComposer extends zk.grails.Composer {
 	Textbox senha
 	@Wire
 	Label lblErro
+	
+	def springSecurityService
+	
+	//Usuario usuario = session.getAttribute("usuario")
 	
 	@Listen("onClick = #btnCancelar")
 	void limpar() {
@@ -74,6 +80,12 @@ class MeuPerfilComposer extends zk.grails.Composer {
 	
     def afterCompose = { window ->
         // initialize components here
+		
+		//Usuario usuario = Usuario.findByUsername(springSecurityService.principal.username)
+		
+		//session.setAttribute("usuario",usuario)
+		//session.getAttribute("usuario", usuario)
+		
 		listarProprietario()
     }
 	
@@ -93,7 +105,8 @@ class MeuPerfilComposer extends zk.grails.Composer {
 				}
 			}
 			
-			Proprietario.list().each{ proprietario ->
+			int id = session.getAttribute("usuario").id
+			Proprietario.get(id).each{ proprietario ->
 				listitem(value: proprietario) { item ->
 					listcell(label: proprietario.id)
 					listcell(label: proprietario.nome)

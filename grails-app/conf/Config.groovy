@@ -108,7 +108,7 @@ grails.plugins.springsecurity.providerNames = ['autenticacao']
 grails.plugins.springsecurity.securityConfigType = SecurityConfigType.InterceptUrlMap
 grails.plugins.springsecurity.interceptUrlMap = [
 	'/principal.zul':         ['ROLE_USER','ROLE_ADMIN'],
-	'/principal.zul': ['ROLE_ADMIN'],
-	'/**':               ['IS_AUTHENTICATED_ANONYMOUSLY']
+	'/administrador/meuPerfil.zul': ['ROLE_ADMIN'],
+	'/elementosFora.zul':               ['IS_AUTHENTICATED_ANONYMOUSLY']
 ]
 

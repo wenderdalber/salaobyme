@@ -38,13 +38,14 @@ class PerfilUsuarioComposer extends zk.grails.Composer {
 	
 	@Listen("onClick = #btnAlterar")
 	void salvar() {
+		Pessoa pessoa = new Pessoa()
 		Usuario usuario = Usuario.get(id.value)
 		if (usuario == null) usuario = new Usuario()
 		usuario.id=id.value
-		usuario.nome=nome.value
-		usuario.email=email.value
-		usuario.telefone=telefone.value
-		usuario.celular=celular.value
+		pessoa.nome=nome.value
+		pessoa.email=email.value
+		pessoa.telefone=telefone.value
+		pessoa.celular=celular.value
 		
 		if (!usuario.hasErrors() && usuario.save(flush:true)) {
 			Messagebox.show("Usuario alterado com sucesso!")
@@ -61,12 +62,13 @@ class PerfilUsuarioComposer extends zk.grails.Composer {
 	
 	@Listen("onDoubleClick = #listaUsuario")
 	void alterar(Event e) {
+		Pessoa pessoa = new Pessoa()
 		Usuario usuario = e.target.selectedItem.value
 		id.value=usuario.id
-		nome.value=usuario.nome
-		email.value=usuario.email
-		telefone.value=usuario.telefone
-		celular.value=usuario.celular
+		nome.value=pessoa.nome
+		email.value=pessoa.email
+		telefone.value=pessoa.telefone
+		celular.value=pessoa.celular
 		
 		panel.visible=true
 	}
@@ -99,13 +101,15 @@ class PerfilUsuarioComposer extends zk.grails.Composer {
 				}
 			}
 			
-			Usuario.list().each{ usuario ->
+			int id = session.getAttribute("usuario").id
+			Pessoa pessoa = new Pessoa()
+			Usuario.get(id).each{ usuario ->
 				listitem(value: usuario) { item ->
 					listcell(label: usuario.id)
-					listcell(label: usuario.nome)
-					listcell(label: usuario.email)
-					listcell(label: usuario.telefone)
-					listcell(label: usuario.celular)
+					listcell(label: pessoa.nome)
+					listcell(label: pessoa.email)
+					listcell(label: pessoa.telefone)
+					listcell(label: pessoa.celular)
 					listcell(label: ""){
 						hlayout{
 							toolbarbutton(label: 'Cancelar', image: "/images/skin/database_delete.png", onClick: {
