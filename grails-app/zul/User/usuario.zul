@@ -32,7 +32,7 @@
 				<row>
 					<label
 						value="${message(code:'cliente.nome.label',default:'Nome')}" />
-					<textbox id="nome" maxlength="100" placeholder="Nome" constraint="no empty: Entre com seu nome" />					
+					<textbox id="nome" name="nome" maxlength="100" placeholder="Nome" constraint="no empty: Entre com seu nome" />					
 				<hbox>
 						<image src="/images/skin/information.png" tooltip="nom"
 							style="cursor: help" />
@@ -43,7 +43,7 @@
 				<row>
 					<label
 						value="${message(code:'cliente.email.label',default:'E-mail')}" />
-					<textbox id="email" placeholder="nome@exemplo.com.br" constraint="no empty: Entre com seu e-mail" />
+					<textbox id="email" name="email" placeholder="nome@exemplo.com.br" constraint="no empty: Entre com seu e-mail" />
 				<hbox>
 						<image src="/images/skin/information.png" tooltip="em"
 							style="cursor: help" />

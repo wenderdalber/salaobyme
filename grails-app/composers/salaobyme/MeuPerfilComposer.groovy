@@ -15,6 +15,8 @@ class MeuPerfilComposer extends zk.grails.Composer {
 	listaProprietario
 	@Wire
 	Panel panel
+	@Wire
+	Div divAdmin, divNotAdmin
 	
 	@Wire
 	Intbox id
@@ -67,8 +69,9 @@ class MeuPerfilComposer extends zk.grails.Composer {
 		proprietario.celular=celular.value
 		
 		if (!proprietario.hasErrors() && proprietario.save(flush:true)) {
-			Messagebox.show("Usuario alterado com sucesso! Realize login no sistema!")
+			Messagebox.show("Usuario alterado com sucesso!")
 			panel.visible=false
+			listarProprietario()
 		}else {
 			String x=""
 			proprietario.errors.allErrors.each{
@@ -125,4 +128,19 @@ class MeuPerfilComposer extends zk.grails.Composer {
 		}
 		
 	}
+
+	void atualizarUsuarios(){
+		
+		Usuario usuario = session.getAttributes("usuario")
+		
+		if (usuario.authorities.find({it.authority == "ROLE_ADMIN"})){
+			divAdmin.visible=true
+			divNotAdmin.visible=false
+		}else{
+			divAdmin.visible=false
+			divNotAdmin.visible=true
+		}
+		
+		}
+	
 }

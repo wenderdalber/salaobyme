@@ -26,6 +26,7 @@
 	<include src="../elementos.zul" />
 	
 		<div class="espaco"></div>
+		<div id="divAdmin">
 		<label value="Meus Dados" class="btn btn-primary" />
 		<div class="espaco"></div>
         <listbox style="float:left" id="listaProprietario" width="600px" sclass="grid" emptyMessage="Erro! Você não está cadastrado">
@@ -165,6 +166,10 @@
 			<button id="btnCancelar" class="btn btn-danger" label="Cancelar"></button>        	
 		</panelchildren>
 		</panel>
+		</div>
+		<div id="divNotAdmin">
+			<html><h2>Não tem permissão Zé!</h2></html>
+		</div>
 		<div class="espaco"></div>
 
     </window>

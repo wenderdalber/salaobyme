@@ -51,7 +51,7 @@
 				</row>
 				</rows>
 			</grid>
-			<button label="Buscar" id="btnBuscar" class="btn btn-large btn-warning"></button>
+			 	<a href="http://localhost:8080/salaobyme/reservar.zul" class="btn btn-large btn-warning">Buscar</a>
 			</panelchildren>
 		</panel>
 

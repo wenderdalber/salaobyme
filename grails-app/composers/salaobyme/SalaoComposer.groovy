@@ -46,7 +46,8 @@ class SalaoComposer extends zk.grails.Composer {
 		end?.cidade=cidade?.value
 		end?.estado=estado?.value
 				
-		prop = Proprietario.get(1)		
+		//prop = session.getAttribute("usuario").proprietario		
+		prop = Proprietario.get(3)
 		
 		salao.proprietario = prop
 		salao.endereco = end

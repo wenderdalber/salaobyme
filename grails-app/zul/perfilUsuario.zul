@@ -15,13 +15,6 @@
 
 <include src="elementos.zul" />
 
-<sec:ifAnyGranted roles="ROLE_USER,ROLE_ADMIN">
-			<label id="lbUsuario" />
-			<space orient="horizontal" />				
-			<div style="float:right">
-				<a href="${resource(file: 'j_spring_security_logout')}">Sair</a>
-			</div>		
-		</sec:ifAnyGranted>
 		
 		<sec:ifAllGranted roles="ROLE_USER,ROLE_ADMIN">
     	
@@ -33,8 +26,11 @@
 
 
 		<div class="espaco"></div>
-        <listbox id="listaUsuario" emptyMessage="Erro! Você não está cadastrado">
-		</listbox>	
+        <listbox style="float:left" id="listaUsuario" width="650px" sclass="grid" emptyMessage="Erro! Você não está cadastrado">
+		</listbox>
+		<div style="float:left" width="230px">
+			<a href="http://localhost:8080/salaobyme/minhasReservas.zul" class="btn btn-primary">Minhas Reservas</a>
+		</div>		
 <panel id="panel" title="Cadastro de clientes" visible="false" framable="true" width="900px"         
 		maximizable="true" border="normal" collapsible="true" draggable="true">
         <panelchildren>
@@ -145,7 +141,7 @@
 		</panel>
       
 		<div class="espaco"></div>
-<div class="div">
+<div class="div" style="float:left">
 <html><center>Salãoby.me - Todos os direitos reservados (2013)</center></html>
 </div>
 

@@ -25,11 +25,13 @@
     	
     	<label style="color: #cc0000;" value="Usuário e/ou senha inválidos" if="#{param.msg=='ERROR'}" />
 		<label style="color: #cc0000;" value="Você não tem permissão para acessar a página. Faça o login." if="#{param.msg=='ACESSONEGADO'}" />
-		<label style="color: #cc0000;" value="Volte sempre!." if="#{param.msg=='LOGOUT'}" />
+		<label style="color: #cc0000;" value="Você saiu com sucesso!." if="#{param.msg=='LOGOUT'}" />
 
 		<h:form method="POST" action="${resource(file: 'j_spring_security_check')}">
-		
-			<div class="divPrincipal">
+					<div style="float:left">
+				<html><img src="images/logo.png" /></html>
+			</div>
+			<div style="margin:auto; float:left" width="400px" >
 				<div>
 					<html>
 						<h2>Salão by Me</h2>
@@ -44,12 +46,19 @@
 				<div>
 					<button class="btn btn-primary" type="submit" label="Entrar" />
 				</div>
-			</div>
-			
 				<sec:ifNotLoggedIn>
   					<a href="#">Esqueci minha senha?</a>
 				</sec:ifNotLoggedIn>
-			
+			</div>
+			<div style="float:left" width="900px">
+				<html><center><h2>Novo por aqui? Cadastre-se!</h2></center></html>
+			<div>
+				<html><center><h4><a href="http://localhost:8080/salaobyme/administrador/proprietario.zul">Cadastro de dono de salão</a></h4></center></html>
+			</div>
+			<div>
+				<html><center><h4><a href="http://localhost:8080/salaobyme/User/usuario.zul">Cadastro de usuário</a></h4></center></html>
+			</div>
+			</div>
 		</h:form>
     	  
     </window>

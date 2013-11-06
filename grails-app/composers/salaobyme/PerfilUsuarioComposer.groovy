@@ -38,14 +38,18 @@ class PerfilUsuarioComposer extends zk.grails.Composer {
 	
 	@Listen("onClick = #btnAlterar")
 	void salvar() {
-		Pessoa pessoa = new Pessoa()
-		Usuario usuario = Usuario.get(id.value)
+		Proprietario proprietario = Proprietario.get(id.value)
+		Usuario usuario = new Usuario()
 		if (usuario == null) usuario = new Usuario()
-		usuario.id=id.value
-		pessoa.nome=nome.value
-		pessoa.email=email.value
-		pessoa.telefone=telefone.value
-		pessoa.celular=celular.value
+		proprietario.id=id.value
+		proprietario.nome=nome.value
+		proprietario.email=email.value
+		proprietario.telefone=telefone.value
+		proprietario.celular=celular.value
+		
+		usuario.username=session.getAttribute("usuario").username
+		usuario.password=session.getAttribute("usuario").password
+		usuario.proprietario=proprietario
 		
 		if (!usuario.hasErrors() && usuario.save(flush:true)) {
 			Messagebox.show("Usuario alterado com sucesso!")
@@ -62,13 +66,13 @@ class PerfilUsuarioComposer extends zk.grails.Composer {
 	
 	@Listen("onDoubleClick = #listaUsuario")
 	void alterar(Event e) {
-		Pessoa pessoa = new Pessoa()
-		Usuario usuario = e.target.selectedItem.value
-		id.value=usuario.id
-		nome.value=pessoa.nome
-		email.value=pessoa.email
-		telefone.value=pessoa.telefone
-		celular.value=pessoa.celular
+		//Pessoa pessoa = new Pessoa()
+		Proprietario proprietario = e.target.selectedItem.value
+		id.value=proprietario.usuario.id
+		nome.value=proprietario.nome
+		email.value=proprietario.email
+		telefone.value=proprietario.telefone
+		celular.value=proprietario.celular
 		
 		panel.visible=true
 	}
@@ -102,10 +106,10 @@ class PerfilUsuarioComposer extends zk.grails.Composer {
 			}
 			
 			int id = session.getAttribute("usuario").id
-			Pessoa pessoa = new Pessoa()
-			Usuario.get(id).each{ usuario ->
-				listitem(value: usuario) { item ->
-					listcell(label: usuario.id)
+			//Pessoa pessoa = new Pessoa()
+			Pessoa.get(id).each{ pessoa ->
+				listitem(value: pessoa) { item ->
+					listcell(label: pessoa.id)
 					listcell(label: pessoa.nome)
 					listcell(label: pessoa.email)
 					listcell(label: pessoa.telefone)

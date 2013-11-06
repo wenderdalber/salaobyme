@@ -7,6 +7,8 @@ class Reserva {
 	double preco
 	int situacao
 	Date dataReserva
+	Salao salao
+	Usuario usuario
 	
 	static hasMany = [servicos: Servico, horarios: Horario]
 	static belongsTo = [Salao, Usuario]

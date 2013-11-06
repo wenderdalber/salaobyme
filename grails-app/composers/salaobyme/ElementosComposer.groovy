@@ -37,23 +37,12 @@ class ElementosComposer extends zk.grails.Composer {
 		
 		if (usuario.authorities.find({it.authority == "ROLE_ADMIN"})){
 			lblEmailUsuario.value="Logado como proprietário"
-		}else{
-			lblEmailUsuario.value="Logado como usuário"
-		}
-		
-		perfis()
-   }
-	
-	void perfis(){
-		
-		
-		
-		if(session.getAttribute("usuario").proprietario != null){
 			perfilProprietario.visible=true
 			perfilUsuario.visible=false
 		}else{
-			perfilProprietario.visible=false
+			lblEmailUsuario.value="Logado como usuário"
 			perfilUsuario.visible=true
+			perfilProprietario.visible=false
 		}
-	}
+   }
 }

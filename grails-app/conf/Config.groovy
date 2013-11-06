@@ -112,3 +112,16 @@ grails.plugins.springsecurity.interceptUrlMap = [
 	'/elementosFora.zul':               ['IS_AUTHENTICATED_ANONYMOUSLY']
 ]
 
+grails {
+	mail {
+	  host = "smtp.gmail.com"
+	  port = 465
+	  username = "wenderfatec@gmail.com"
+	  password = "yroehtESUOH11"
+	  props = ["mail.smtp.auth":"true",
+			   "mail.smtp.socketFactory.port":"465",
+			   "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+			   "mail.smtp.socketFactory.fallback":"false"]
+	}
+ }
+
