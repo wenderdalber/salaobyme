@@ -4,6 +4,7 @@ class Servico {
 	
 	String descricao
 	int status
+	double preco
 	
 	static hasMany = [saloes:Salao]
 	static belongsTo = [Salao]

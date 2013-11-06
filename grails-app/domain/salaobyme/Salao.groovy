@@ -11,7 +11,7 @@ class Salao {
 	Proprietario proprietario
 	
 	static belonsgTo = [Proprietario]
-	static hasMany = [servicos:Servico]
+	static hasMany = [servicos:Servico, diasAbertos:Dia]
 
 	static constraints = {
 		id unique:true

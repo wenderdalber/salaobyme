@@ -4,7 +4,6 @@ import java.util.Date;
 
 class Reserva {
 	
-	double preco
 	int situacao
 	Date dataReserva
 	Salao salao
@@ -14,8 +13,7 @@ class Reserva {
 	static belongsTo = [Salao, Usuario]
 	
 	static constraints = {
-		id unique:true
-		preco nullable:false
+		id unique:true 
 		dataReserva nullable:false
 	}
 	static mapping = {

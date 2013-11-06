@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap-min.css"?>
+<?page title="Salaoby.me - Reservar" ?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="salaobyme.ReservarComposer" width="900px" style="margin:auto">
+    
+    <include src="elementos.zul" />
+    
+    <div>
+    	<label value="Selecione um serviço: " />
+    	<listbox id="lstServico" multiple="false" rows="1" mold="select">
+    		<listitem label="Selecione" selected="true"/>
+    	</listbox>
+    </div>
+    <div>
+    	<label value="Selecione um horário: " />
+    	<listbox id="lstHorario" multiple="false" rows="1" mold="select">
+    		<listitem label="Selecione" selected="true"/>
+    	</listbox>
+    </div>
+    
+    <listbox id="listaSaloes" sclass="grid" emptyMessage="Nenhum salão no sistema!"></listbox>
+
+    </window>
+
+</zk>

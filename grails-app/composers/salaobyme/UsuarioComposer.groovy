@@ -47,6 +47,13 @@ class UsuarioComposer extends zk.grails.Composer {
 		usuario.password=password.value
 		usuario.proprietario = proprietario;
 		
+		/*mailService.sendMail {
+			to "wenderdalber@gmail.com"
+			from "wenderfatec@gmail.com"
+			subject "Hello John"
+			body 'this is some text'
+		 }*/
+		
 		def permissaoUsuario = Permissao.findByAuthority('ROLE_USER') ?: new Permissao(authority: 'ROLE_USER').save(failOnError: true)
 		
 		if (/*!proprietario.hasErrors() &&*/ !usuario.hasErrors())

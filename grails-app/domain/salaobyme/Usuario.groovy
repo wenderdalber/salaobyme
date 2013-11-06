@@ -27,7 +27,7 @@ class Usuario {
 	Set<Permissao> getAuthorities() {
 		UsuarioPermissao.findAllByUsuario(this).collect { it.permissao } as Set
 	}
-
+	
 	def beforeInsert() {
 		encodePassword()
 	}

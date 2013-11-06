@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap-min.css"?>
+<?page title="Salãoby-me - Pesquisa" ?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="salaobyme.PesquisaComposer" style="margin:auto" width="900px">
+
+		<include src="elementos.zul" />
+		
+		<div>
+			<label value="Selecione o salão: "/>
+			<listbox multiple="false" id="lstSaloes" rows="1" mold="select"></listbox>
+			<button id="btnBuscar" class="btn btn-warning">Buscar</button>
+		</div>
+      	<div>
+      		<listbox id="lstDadosSalao" emptyMessage="Nenhum salão encontrado"></listbox>
+      	</div>
+
+    </window>
+
+</zk>
