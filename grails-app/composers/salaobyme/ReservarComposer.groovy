@@ -23,6 +23,9 @@ class ReservarComposer extends zk.grails.Composer {
 	@Wire
 	Listbox lstServico, lstHorario
 	
+	@Wire
+	Div divServico, divHorario
+	
     def afterCompose = { window ->
         // initialize components here
 		listarSaloes()
@@ -130,6 +133,15 @@ class ReservarComposer extends zk.grails.Composer {
 		reserva.save(flush:true)
 	}
 
+	@Listen("onClick = #listaSaloes")
+	void servicos() {
+		divServico.visible=true			
+	}
+	
+	@Listen("onClick = #lstServico")
+	void horarios() {
+		divHorario.visible=true
+	}
 	
 	@Listen("onClick = #btnReservar")
 	void reservar() {

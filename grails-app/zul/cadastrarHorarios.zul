@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap-min.css"?>
+<?page title="Cadastrar Horários" ?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+	<window apply="salaobyme.CadastrarHorariosComposer" style="margin:auto" width="900px">
+		
+		<include src="elementos.zul" />
+		
+		<vlayout style="float:left">
+			<label>Salao:</label>
+			<combobox readonly="true" id="cbmSalao" name="cbmSalao">
+			</combobox>
+			<label>Dia:</label>
+			<combobox readonly="true" id="cbmDia" name="cbmDia">
+				<comboitem label="Segunda" />
+				<comboitem label="Terça" />
+				<comboitem label="Quarta" />
+				<comboitem label="Quinta" />
+				<comboitem label="Sexta" />
+				<comboitem label="Sábado" />
+				<comboitem label="Domingo" />
+			</combobox>
+			<button id="btnAtualizarHorario">Atualizar Horarios</button>
+		</vlayout>
+		<listbox width="250px" height="300px" id="lstHorarios"
+			multiple="true" checkmark="true" style="float:left; margin-top:10px;">
+			<listhead>
+				<listheader label="Horário" />
+			</listhead>
+			<listitem>
+				<listcell label="06:00" />
+			</listitem>
+			<listitem>
+				<listcell label="06:30" />
+			</listitem>
+			<listitem>
+				<listcell label="07:00" />
+			</listitem>
+			<listitem>
+				<listcell label="07:30" />
+			</listitem>
+			<listitem>
+				<listcell label="08:00" />
+			</listitem>
+			<listitem>
+				<listcell label="08:30" />
+			</listitem>
+			<listitem>
+				<listcell label="09:00" />
+			</listitem>
+			<listitem>
+				<listcell label="09:30" />
+			</listitem>
+			<listitem>
+				<listcell label="10:00" />
+			</listitem>
+			<listitem>
+				<listcell label="10:30" />
+			</listitem>
+			<listitem>
+				<listcell label="11:00" />
+			</listitem>
+			<listitem>
+				<listcell label="11:30" />
+			</listitem>
+			<listitem>
+				<listcell label="12:00" />
+			</listitem>
+			<listitem>
+				<listcell label="12:30" />
+			</listitem>
+			<listitem>
+				<listcell label="13:00" />
+			</listitem>
+			<listitem>
+				<listcell label="13:30" />
+			</listitem>
+			<listitem>
+				<listcell label="14:00" />
+			</listitem>
+			<listitem>
+				<listcell label="14:30" />
+			</listitem>
+			<listitem>
+				<listcell label="15:00" />
+			</listitem>
+			<listitem>
+				<listcell label="15:30" />
+			</listitem>
+			<listitem>
+				<listcell label="16:00" />
+			</listitem>
+			<listitem>
+				<listcell label="16:30" />
+			</listitem>
+			<listitem>
+				<listcell label="17:00" />
+			</listitem>
+			<listitem>
+				<listcell label="17:30" />
+			</listitem>
+			<listitem>
+				<listcell label="18:00" />
+			</listitem>
+			<listitem>
+				<listcell label="18:30" />
+			</listitem>
+			<listitem>
+				<listcell label="19:00" />
+			</listitem>
+			<listitem>
+				<listcell label="19:30" />
+			</listitem>
+			<listitem>
+				<listcell label="20:00" />
+			</listitem>
+			<listitem>
+				<listcell label="20:30" />
+			</listitem>
+			<listitem>
+				<listcell label="21:00" />
+			</listitem>
+			<listitem>
+				<listcell label="21:30" />
+			</listitem>
+			<listitem>
+				<listcell label="22:00" />
+			</listitem>
+			<listitem>
+				<listcell label="22:30" />
+			</listitem>
+			<listitem>
+				<listcell label="23:00" />
+			</listitem>
+			<listitem>
+				<listcell label="23:30" />
+			</listitem>
+			<listitem>
+				<listcell label="24:00" />
+			</listitem>
+		</listbox>
+		
+	</window>
+</zk>

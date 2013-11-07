@@ -3,6 +3,7 @@ package salaobyme
 class Dia {
 	
 	String dia
+	String status
 	Salao salao
 	
 	static hasMany = [horarios:Horario]
