@@ -16,20 +16,22 @@
     <include src="elementos.zul" />
     
     <div>
+    	<label id="lblErro"/>
+    </div>
+    <div style="float:left">
     	<label value="Selecione um serviço: " />
-    	<listbox id="lstServico" multiple="false" rows="1" mold="select">
-    		<listitem label="Selecione" selected="true"/>
+    	<listbox id="lstServico" width="450px" multiple="false" autopaging="true" rows="3" mold="paging">
     	</listbox>
     </div>
-    <div>
+    <div style="float:left">
     	<label value="Selecione um horário: " />
-    	<listbox id="lstHorario" multiple="false" rows="1" mold="select">
-    		<listitem label="Selecione" selected="true"/>
+    	<listbox id="lstHorario" width="440px" multiple="false" autopaging="true" rows="3" mold="paging">
     	</listbox>
     </div>
     
-    <listbox id="listaSaloes" sclass="grid" emptyMessage="Nenhum salão no sistema!"></listbox>
-
+    <div style="float:left">
+    	<listbox id="listaSaloes" sclass="grid" emptyMessage="Nenhum salão no sistema!"></listbox>
+	</div>
     </window>
 
 </zk>

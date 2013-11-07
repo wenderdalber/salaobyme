@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap-min.css"?>
+<?page title="Salaoby.me - Alterar Senha" ?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="salaobyme.AlterarSenhaComposer" style="margin:auto" width="900px">
+	
+	<include src="elementos.zul" />
+	
+	<div>
+		<html><h4>Para alterar sua senha, entre com sua senha atual e depois sua nova senha!</h4></html>
+	</div>
+	<panel id="panel" title="Cadastro de clientes" visible="true" framable="false" width="900px">
+		<panelchildren>
+			<grid>
+				<rows>
+					<row>
+						<label value="Senha atual: " />
+						<textbox id="senhaAtual" name="senhaAtual" type="password" placeholder="******" constraint="no empty: Entre com a sua senha atual"></textbox>
+					</row>
+					<row>
+						<label value="Nova senha: " />
+						<textbox id="senha" name="senha" type="password" placeholder="******" constraint="no empty: Entre com sua nova senha!"></textbox>
+					</row>
+					<row>
+						<label value="Confirmar: " />
+						<textbox id="senhaConfirmar" name="senhaConfirmar" type="password" placeholder="******" constraint="no empty: Confirme sua nova senha!"></textbox>
+					</row>
+					<row>
+						<button id="btnSalvar" class="btn btn-danger">Alterar</button>
+					</row>
+				</rows>
+			</grid>
+		</panelchildren>
+	</panel>
+    </window>
+
+</zk>

@@ -1,5 +1,7 @@
 package salaobyme
 
+import javax.swing.ListCellRenderer;
+
 import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.grails.composer.*
 import org.zkoss.zk.ui.*;
@@ -41,68 +43,68 @@ class ReservarComposer extends zk.grails.Composer {
 
 						reserva.situacao=1
 						reserva.dataReserva=new Date()
-						reserva.preco=25
 						
 						salao = Salao.get(item.value.id)
-
-						servicos = lstServico.selectedItem.value
 						
-						horarios = lstHorario.selectedItem.value
 						
-						reserva.situacao = 1
-						reserva.dataReserva=new Date()
-						reserva.preco=25
-										
-						reserva.salao = salao
-						reserva.addToServicos(servicos)
-						reserva.addToHorarios(horarios)
-						reserva.usuario=session.getAttribute("usuario")
-						
-						//Servico servico = salao.servicos(lazy:true)
-						//Servico servico = salao.servicos.grep(lstServico.selectedItem.value)
-						
-						if(salao.servicos.size() > 0)
+						if(lstServico.selectedItem.value != null)
 						{
-						if (/*!proprietario.hasErrors() &&*/ !reserva.hasErrors())
-						{
-							//proprietario.save(flush:true)
-							if(reserva.save(flush:true))
+							if(lstHorario.selectedItem.value != null)
 							{
-								
-								Messagebox.show("Você reservou um serviço no Salão " + salao.nome)
-								lblErro.value = ""
-							}
-							else
-							{
-								String x=""
-								reserva.errors.allErrors.each{
-									x+=""+message(error:it)
+								if(salao.servicos.size() > 0)
+								{
+									servicos = lstServico.selectedItem.value
+									horarios = lstHorario.selectedItem.value
+									
+									reserva.salao = salao
+									reserva.addToServicos(servicos)
+									reserva.addToHorarios(horarios)
+									reserva.usuario=session.getAttribute("usuario")
+									
+									//Servico servico = salao.servicos(lazy:true)
+									//Servico servico = salao.servicos.grep(lstServico.selectedItem.value)
+									
+									if(salao.servicos.size() > 0)
+									{
+									if (/*!proprietario.hasErrors() &&*/ !reserva.hasErrors())
+									{
+										//proprietario.save(flush:true)
+										if(reserva.save(flush:true))
+										{
+											
+											Messagebox.show("Você reservou um serviço no Salão " + salao.nome)
+											lblErro.value = ""
+										}
+										else
+										{
+											String x=""
+											reserva.errors.allErrors.each{
+												x+=""+message(error:it)
+											}
+											lblErro.value=x
+										}
+									}
+								}else
+								{
+									Messagebox.show("Este Salão não tem esse serviço")
 								}
-								lblErro.value=x
+							}else
+							{
+								Messagebox.show("Selecione um horário")
 							}
+						}else
+						{
+							Messagebox.show("Selecione um serviço")
 						}
-					 }else{
-					 Messagebox.show("Este salão não tem esse serviço, seu BURRO!")
-					 }
 					}
 				}
 			}
+		}
 		)
 	}
 	
 	@Listen("onDoubleClick = #listaSaloes")
 	void alterar(Event e) {
-		/*Servico servico = new Servico()
-		Salao salao = e.target.selectedItem.value
-		
-		salao.nome = lblNomeSalao.value
-		
-		session.getAttribute("usuario").username=lblNome.value
-		
-		salao.nome=telefone.value
-		
-		servico = Servico.get(1)
-		servico.descricao=lblServico*/
 		
 		Reserva reserva = new Reserva()
 		Salao salao = new Salao()
@@ -127,7 +129,7 @@ class ReservarComposer extends zk.grails.Composer {
 		
 		reserva.save(flush:true)
 	}
-	
+
 	
 	@Listen("onClick = #btnReservar")
 	void reservar() {
@@ -200,12 +202,13 @@ class ReservarComposer extends zk.grails.Composer {
 	void listarServicos() {
 		lstServico.append {
 			listhead(sizable:true){
-				listheader(label: "ID")
 				listheader(label: "Descricao")
+				listheader(label: "Preço")
 			}
 			Servico.list().each{ servico ->
 				listitem(value: servico) {
 					listcell(label: servico.descricao)
+					listcell(label: servico.preco)
 				}
 			}
 		}
@@ -214,12 +217,13 @@ class ReservarComposer extends zk.grails.Composer {
 	void listarHorarios() {
 		lstHorario.append {
 			listhead(sizable:true){
-				listheader(label: "ID")
+				listheader(label: "Hora de Inicio")
 				listheader(label: "Hora de Inicio")
 			}
 			Horario.list().each{ horario ->
 				listitem(value: horario) {
 					listcell(label: horario.horaInicio)
+					listcell(label: horario.horaFim)
 				}
 			}
 		}

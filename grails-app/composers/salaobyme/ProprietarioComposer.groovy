@@ -1,4 +1,6 @@
 package salaobyme
+import org.zkoss.zul.Listitem;
+
 import org.zkoss.zk.grails.composer.*
 import org.zkoss.zk.ui.*;
 import org.zkoss.zk.ui.event.*
@@ -43,6 +45,9 @@ class ProprietarioComposer extends zk.grails.Composer {
 		lblErro.value=""
 	}
 	
+	void limparCampos(){
+		nome.value=""
+	}
 	
 	@Listen("onClick = #btnSalvar")
 	void salvar() {

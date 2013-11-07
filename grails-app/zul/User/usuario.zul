@@ -43,7 +43,7 @@
 				<row>
 					<label
 						value="${message(code:'cliente.email.label',default:'E-mail')}" />
-					<textbox id="email" name="email" placeholder="nome@exemplo.com.br" constraint="no empty: Entre com seu e-mail" />
+					<textbox id="email" name="email" placeholder="nome@exemplo.com.br" constraint="/.+@.+\.[a-z]+/: Entre com um e-mail válido" />
 				<hbox>
 						<image src="/images/skin/information.png" tooltip="em"
 							style="cursor: help" />
@@ -95,9 +95,6 @@
 							tooltip="sen" />
 					</hbox>		
 				</row>
-				<row>
-					<label id="lblErro" />
-				</row>
 			</rows>
 
 		</grid>
@@ -147,8 +144,9 @@
 			para salões de beleza mais completo do mercado.
 		</html>
 	</popup>
-		<button class="btn btn-success" id="btnSalvar" label="Salvar"></button>
-		<button class="btn btn-danger" id="btnCancelar" label="Cancelar"></button>        	
+			<button class="btn btn-success" id="btnSalvar" label="Salvar"></button>
+			<button class="btn btn-danger" id="btnCancelar" label="Cancelar"></button>        	
+			<label id="lblErro" />
 		</panelchildren>
 		</panel>
     <div class="espaco"></div>

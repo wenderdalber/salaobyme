@@ -17,5 +17,4 @@ class Proprietario extends Pessoa {
 	static mapping = {
 		id generator: "native"
 	}
-	
 }

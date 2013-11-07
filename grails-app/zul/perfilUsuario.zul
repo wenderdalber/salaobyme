@@ -137,6 +137,7 @@
 	</popup>
 	<button id="btnAlterar" class="btn btn-primary" label="Alterar"></button>
 	<button id="btnCancelar" class="btn btn-danger" label="Cancelar"></button>        	
+	<label id="lblErro" />
 		</panelchildren>
 		</panel>
       

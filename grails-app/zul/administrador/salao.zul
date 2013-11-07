@@ -25,12 +25,12 @@
 				<row>
 					<label
 						value="${message(code:'salao.codigo.label',default:'Código')}" visible="false" />
-					<intbox id="id" value="0" visible="false" />
+					<intbox id="id" name="id" value="0" visible="false" />
 				</row>
 				<row>
 					<label
 						value="${message(code:'salao.nome.label',default:'Nome do Salao')}" />
-					<textbox id="nome" maxlength="100" placeholder="Nome do Salao" constraint="no empty: Entre com nome do seu salao" />					
+					<textbox id="nome" name="nome" maxlength="100" placeholder="Nome do Salao" constraint="no empty: Entre com nome do seu salao" />					
 				<hbox>
 						<image src="/images/skin/information.png" tooltip="nom"
 							style="cursor: help" />

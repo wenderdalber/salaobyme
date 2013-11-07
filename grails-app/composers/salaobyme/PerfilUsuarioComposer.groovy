@@ -29,7 +29,7 @@ class PerfilUsuarioComposer extends zk.grails.Composer {
 	
 	def springSecurityService
 	
-	Label lbUsuario, lbCargo
+	Label lbUsuario, lbCargo, lblErro
 	
 	@Listen("onClick = #btnCancelar")
 	void limpar() {

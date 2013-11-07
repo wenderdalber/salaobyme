@@ -26,7 +26,7 @@
     <div class="espaco"></div>
     <div class="descer">
     <label class="lbl" value="E-mail:" />
-   <textbox id="email" placeholder="nome@exemplo.com.br" width="150px"/>
+   <textbox id="email" placeholder="nome@exemplo.com.br" constraint="/.+@.+\.[a-z]+/: Entre com um e-mail válido" width="150px"/>
    </div>
    <div class="descer">
    <button id="btnEnviar" label="Enviar" class="btn btn-primary"></button>

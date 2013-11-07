@@ -36,11 +36,11 @@ class ElementosComposer extends zk.grails.Composer {
 		lblNomeUsuario.value="Bem-vindo, "+usuario.username
 		
 		if (usuario.authorities.find({it.authority == "ROLE_ADMIN"})){
-			lblEmailUsuario.value="Logado como proprietário"
+			//lblEmailUsuario.value="Logado como proprietário"
 			perfilProprietario.visible=true
 			perfilUsuario.visible=false
 		}else{
-			lblEmailUsuario.value="Logado como usuário"
+			//lblEmailUsuario.value="Logado como usuário"
 			perfilUsuario.visible=true
 			perfilProprietario.visible=false
 		}
