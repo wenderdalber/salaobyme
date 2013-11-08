@@ -31,25 +31,36 @@ class CadastrarHorariosComposer extends zk.grails.Composer {
 			//horario.save(true)
 			horarios.add(horario)
 		}
+		
+		
 		dia.dia = cbmDia.value
 		dia.horarios = horarios
 		dia.status = "ativo"
 		
+		dia = Dia.findByDia(cbmDia.value)
 		
-		salao = Salao.findByNome(cbmSalao.value)
-		salao.diasAbertos.add(dia)
-		dia.salao = salao
-		if(dia.save(true)){
-			alert("Horário Cadastrado com sucesso!")
+		if(dia.dia != cbmDia.value)
+		{
+			salao = Salao.findByNome(cbmSalao.value)
+			salao.diasAbertos.add(dia)
+			
+			dia.salao = salao
+			
+			if(dia.save(true)){
+				alert("Horário Cadastrado com sucesso!")
+			}else
+			{
+				alert("Ocorreu um problema no cadastro")
+			}
+			
+			//salao.save(flush:true)
 		}else
 		{
-			alert("Ocorreu um problema no cadastro")
+			Messagebox.show("Esse dia já está cadastrado!")
 		}
-		
-		//salao.save(flush:true)
 	}
 	void listarSaloes()
-	{
+		{
 		ArrayList<Comboitem> saloes = new ArrayList<Comboitem>()
 		
 		prop = Proprietario.findById(session.getAttribute("usuario").proprietario.id)

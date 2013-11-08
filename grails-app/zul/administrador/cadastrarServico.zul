@@ -15,7 +15,8 @@
 		style="margin:auto" width="900px">
 
 		<include src="../elementos.zul" />
-		<panel id="panel" title="Pesquisa salões" framable="false"
+		
+		<panel id="panel" title="Cadastrar Servico" framable="false"
 			width="900px" maximizable="false" border="normal" collapsible="false"
 			draggable="false">
 			<panelchildren>
@@ -23,13 +24,22 @@
 					<grid>
 						<columns>
 							<column>
+								<combobox width="140px" id="cbmSalao" name="cmbSalao" readonly="true"></combobox>
+							</column>
+							<column>
+								<label id="lblErro"/>
 								<label>
-									Escreva ou escolha um serviço
+									Entre com um serviço
 								</label>
 							</column>
 							<column>
-								<combobox id="cmbCadastrarServico"
-									class="" autodrop="true" mold="rounded" buttonVisible="false" />
+								<textbox width="120px" id="descricao" name="descricao" constraint="no empty: Entre com um serviço" placeholder="Nome do serviço"></textbox>
+							</column>
+							<column>
+								<label value="Entre com o preço: " />
+							</column>
+							<column>
+								<doublebox width="85px" id="preco" placeholder="R$" name="preco" constraint="no empty: Entre com o preço"></doublebox>
 							</column>
 							<column>
 								<button id="btnAdicionarServico" class="btn btn-success">Salvar</button>
@@ -43,8 +53,8 @@
 
 							<listhead>
 								<listheader sort="auto" label="Serviço" />
+								<listheader sort="auto" label="Preço" />
 								<listheader sort="auto" label="Ativo" />
-								<listheader sort="auto" label="Excluir" />
 							</listhead>
 
 						</listbox>

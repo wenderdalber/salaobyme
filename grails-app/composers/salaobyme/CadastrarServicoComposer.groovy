@@ -11,33 +11,46 @@ import salaobyme.Servico
 class CadastrarServicoComposer extends zk.grails.Composer {
 
 	@Wire
-	Combobox cmbCadastrarServico
+	Textbox descricao
 	@Wire
 	Listbox lstServicos
 	
+	@Wire
+	Doublebox preco
+	
+	@Wire
+	Label lblErro
+	
+	@Wire
+	Combobox cbmSalao
+	
 	Servico servico
 
+	Proprietario prop = new Proprietario()
+	
 	@Listen("onClick = #btnAdicionarServico")
 	void adicionarServico(){
 		servico = new Servico()
-		servico.descricao = cmbCadastrarServico.value;
+		servico.descricao = descricao.value
+		servico.preco=preco.value
 		servico.status=1
-		servico.save(true)
-		listarServico()
-	}
-	
-	void excluir(Listitem item) {
-		Messagebox.show("Confirma?", "Confirma��o", Messagebox.OK | Messagebox.IGNORE  | Messagebox.CANCEL, Messagebox.QUESTION,
-			new EventListener() {
-				void onEvent(Event evt) throws InterruptedException {
-					if (evt.getName().equals("onOK")) {
-						servico=item.value
-						servico.delete(flush:true)
-						item.detach()
-					}
-				}
+		
+		Salao salao = Salao.findByNome(cbmSalao.value)
+				
+		salao.addToServicos(servico)
+		
+		servico.saloes.add(salao)
+		
+		if (!servico.hasErrors() && servico.save(flush:true)) {
+			Messagebox.show("Serviço cadastrado com sucesso!")
+			listarServico()
+		}else {
+			String x=""
+			servico.errors.allErrors.each{
+				x+=""+message(error:it)
 			}
-		)
+			lblErro.value=x
+		}
 	}
 
 	void listarServico(){
@@ -47,20 +60,23 @@ class CadastrarServicoComposer extends zk.grails.Composer {
 			lstServicos.append{
 				listitem(value:servico){
 					listcell(label:servico.descricao)
+					listcell(label:servico.preco)
 					listcell(label:("Sim"))
-					listcell(label: ""){
-						hlayout{
-							button(label: 'Excluir', class: 'btn btn-danger', onClick: {
-								e-> this.excluir(item);
-								} )
-						}
-					}
 				}
 			}
 		}
 	}
 	def afterCompose = { window ->
 		// initialize components here
+		
+		ArrayList<Comboitem> saloes = new ArrayList<Comboitem>()
+		
+		prop = Proprietario.findById(session.getAttribute("usuario").proprietario.id)
+		
+		prop.saloes.each { salao ->
+			cbmSalao.appendItem(salao.nome)
+		
 		listarServico()
 	}
+  }
 }

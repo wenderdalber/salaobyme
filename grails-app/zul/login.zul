@@ -44,7 +44,7 @@
 					<textbox name="j_password" type="password" id="j_password" placeholder="******" />
 				</div>
 				<div>
-					<button class="btn btn-primary" type="submit" label="Entrar" />
+					<button class="btn btn-primary" id="btnEntrar" type="submit" label="Entrar" />
 					<checkbox id="_spring_security_remember_me" label="Lembrar-me"></checkbox>
 				</div>
 				<sec:ifNotLoggedIn>
