@@ -15,7 +15,7 @@
 		.divPrincipal
 		{
 			margin:auto;
-			widht: 450px;
+			width: 450px;
 			height: auto;
 			padding: 200px 0 0 300px;
 		}
