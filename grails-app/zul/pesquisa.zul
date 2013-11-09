@@ -23,7 +23,9 @@
       	<div>
       		<listbox id="lstDadosSalao" emptyMessage="Nenhum salão encontrado"></listbox>
       	</div>
-
+      	
+      	<include src="rodape.zul" />
+      	
     </window>
 
 </zk>

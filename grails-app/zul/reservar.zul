@@ -7,30 +7,53 @@
 <?page title="Salaoby.me - Reservar" ?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul"
-    xmlns:h="http://www.w3.org/1999/xhtml"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
-    <window apply="salaobyme.ReservarComposer" width="900px" style="margin:auto">
-    
-    <include src="elementos.zul" />
-    
-    <div>
-    	<label id="lblErro"/>
-    </div>
-    <div>
-    	<listbox id="listaSaloes" sclass="grid" emptyMessage="Nenhum salão no sistema!"></listbox>
-	</div>
-    <div id="divServico" visible="false">
-    	<label value="Selecione um serviço: " />
-    	<listbox id="lstServico" multiple="false" autopaging="true" rows="2" mold="paging">
-    	</listbox>
-    </div>
-    <div id="divHorario" visible="false">
-    	<label value="Selecione um horário: " />
-    	<listbox id="lstHorario" multiple="false" autopaging="true" rows="2" mold="paging">
-    	</listbox>
-    </div>
-    </window>
+	<window apply="salaobyme.ReservarComposer" width="900px"
+		style="margin:auto">
+
+		<include src="elementos.zul" />
+
+		<div>
+			<label id="lblErro" />
+		</div>
+		<div>
+			<listbox id="listaSaloes" sclass="grid"
+				emptyMessage="Nenhum salão no sistema!">
+			</listbox>
+		</div>
+		<div id="divServico" visible="false">
+			<label value="Selecione um serviço: " />
+			<listbox id="lstServico" multiple="false" autopaging="true"
+				rows="2" mold="paging">
+				<listhead>
+					<listheader label="Número"></listheader>
+					<listheader label="Descrição"></listheader>
+					<listheader label="Preço"></listheader>
+				</listhead>
+			</listbox>
+		</div>
+		<div id="divHorario" visible="false">
+			<label value="Selecione um horário: " />
+			<listbox id="lstHorario" multiple="false" mold="paging">
+				<listhead>
+					<listheader label="Número do dia"></listheader>
+					<listheader label="Dia"></listheader>
+					<listheader label="Horario"></listheader>
+					<listheader label="Número horario"></listheader>
+				</listhead>
+			</listbox>
+		</div>
+		<div>
+			<datebox id="dataReserva" name="dataReserva" placeholder="Escolha a data" constraint="no empty: Escolha uma data!"></datebox>
+		</div>
+		<div>
+			<button id="btnReservar" class="btn btn-success">Reserva</button>
+		</div>
+		<include src="rodape.zul" />
+		
+	</window>
 
 </zk>

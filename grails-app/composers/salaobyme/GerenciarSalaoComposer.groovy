@@ -13,18 +13,20 @@ class GerenciarSalaoComposer extends zk.grails.Composer {
 
 	@Wire
 	Listbox lstSalao
-	@Wire
-	Listbox lstServico
-	@Wire
-	Listbox lstHorario
-	
+		
 	@Wire
 	Intbox id, numero
 	@Wire
-	Textbox nome, cnpj, logradouro, cidade, estado
+	Textbox nome, cnpj, logradouro, cidade, bairro
+	
+	@Wire
+	Combobox cbmEstado
 	
 	@Wire
 	Panel panel
+	
+	@Wire
+	Label lblErro
 	
 	@Wire
 	Button btnEditarSalao, btnCancelar
@@ -36,7 +38,6 @@ class GerenciarSalaoComposer extends zk.grails.Composer {
 		//session.setAttribute("pegarSalao", pegarSalao)
 		
 		listarSalao()
-		listarServicos()
     }
 	
 	@Listen("onClick = #btnCancelar")
@@ -45,39 +46,51 @@ class GerenciarSalaoComposer extends zk.grails.Composer {
 		panel.visible=false
 	}
 	
-	@Listen("onClick = #btnEditarSalao")
-	void editar() {
+	@Listen("onDoubleClick = #lstSalao")
+	void carregar(Event e) {
 		
-		Salao salao = Salao.get(id.value)
+		Salao salao = e.target.selectedItem.value
+		
+		//Messagebox.show(salao.nome.toString())
+		
 		Endereco end = new Endereco()
+		
 		if (salao == null) salao = new Salao()
-		salao.id=id.value
-		salao.nome=nome.value
-		salao.cnpj=cnpj.value
-		salao.endereco = end
-		end.logradouro=logradouro.value
-		end.numero=numero.value
-		end.cidade=cidade.value
-		end.estado=estado.value
+		
+		id.value=salao.id
+		nome.value=salao.nome
+		cnpj.value=salao.cnpj
+		logradouro.value=salao.endereco.logradouro
+		numero.value=salao.endereco.numero
+		cidade.value=salao.endereco.cidade
+		bairro.value=salao.endereco.bairro
+		cbmEstado.value=salao.endereco.estado
 		
 		panel.visible=true
 	}
 	
 	@Listen("onClick = #btnSalvar")
 	void alterar() {
-		Salao salao = lstSalao.selectedItem.value
+		
+		Salao salao = Salao.get(lstSalao.selectedItem.id.value)
+		
 		Endereco end = new Endereco()
+		
 		if (salao == null) salao = new Salao()
+		
 		salao.id=id.value
 		salao.nome=nome.value
 		salao.cnpj=cnpj.value
+		
 		end.logradouro=logradouro.value
 		end.numero=numero.value
 		end.cidade=cidade.value
-		end.estado=estado.value
+		end.estado=cbmEstado.value
+		
+		salao.endereco = end
 		
 		if (!salao.hasErrors() && salao.save(flush:true)) {
-			Messagebox.show("Usuario alterado com sucesso!")
+			Messagebox.show("Salão alterado com sucesso!")
 			panel.visible=false
 		}else {
 			String x=""
@@ -93,10 +106,26 @@ class GerenciarSalaoComposer extends zk.grails.Composer {
 			listhead(sizable:true){
 				listheader(label: "ID")
 				listheader(label: "Nome")
+				listheader(label: "CNPJ")
+				listheader(label: "Logradouro")
+				listheader(label: "Número")
+				listheader(label: "Cidade")
+				listheader(label: "Estado")
 			}	
-			Salao.list().each{ salao ->
+			
+			ArrayList<Comboitem> saloes = new ArrayList<Comboitem>()
+			
+			Proprietario prop = Proprietario.findById(session.getAttribute("usuario").proprietario.id)
+			
+			prop.saloes.each{ salao ->
 				listitem(value: salao) {
+					listcell(label: salao.id)
 					listcell(label: salao.nome)
+					listcell(label: salao.cnpj)
+					listcell(label: salao.endereco.logradouro)
+					listcell(label: salao.endereco.numero)
+					listcell(label: salao.endereco.cidade)
+					listcell(label: salao.endereco.estado)
 				}
 			}
 		}

@@ -38,10 +38,10 @@
 					</html>
 				</div>
 				<div>
-					<textbox name="j_username" id="j_username" placeholder="nome de usuário" />
+					<textbox class="j_username" name="j_username" id="j_username" placeholder="nome de usuário" />
 				</div>
 				<div>
-					<textbox name="j_password" type="password" id="j_password" placeholder="******" />
+					<textbox class="j_password" name="j_password" type="password" id="j_password" placeholder="******" />
 				</div>
 				<div>
 					<button class="btn btn-primary" id="btnEntrar" type="submit" label="Entrar" />
@@ -61,7 +61,9 @@
 			</div>
 			</div>
 		</h:form>
-    	  
+		
+    	<include src="rodape.zul" />
+    
     </window>
 
 </zk>

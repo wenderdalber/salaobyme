@@ -41,6 +41,9 @@
 			</grid>
 		</panelchildren>
 	</panel>
+	
+	<include src="rodape.zul" />
+	
     </window>
 
 </zk>

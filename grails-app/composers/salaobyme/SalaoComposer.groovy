@@ -23,10 +23,10 @@ class SalaoComposer extends zk.grails.Composer {
 	@Wire
 	Textbox cidade
 	@Wire
-	Textbox estado
-	@Wire
 	Label lblErro
 	
+	@Wire
+	Combobox cbmEstado
 	
 	Salao salao
 	Endereco endereco
@@ -44,7 +44,7 @@ class SalaoComposer extends zk.grails.Composer {
 		end?.numero=numero?.value
 		end?.bairro=bairro?.value
 		end?.cidade=cidade?.value
-		end?.estado=estado?.value
+		end?.estado=cbmEstado?.value
 		
 		//Messagebox.show(session.getAttribute("usuario").id.toString())
 				

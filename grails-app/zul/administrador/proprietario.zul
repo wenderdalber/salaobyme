@@ -193,9 +193,9 @@
         </panel>
 	
       <div class="espaco"></div>
-<div class="div">
-<html><center>Salãoby.me - Todos os direitos reservados (2013)</center></html>
-</div>
+      
+      <include src="../rodape.zul" />
+      
     </window>
 
 </zk>

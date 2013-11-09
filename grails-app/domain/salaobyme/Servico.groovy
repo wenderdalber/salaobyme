@@ -2,6 +2,7 @@ package salaobyme
 
 class Servico {
 	
+	int id
 	String descricao
 	int status
 	double preco
@@ -11,7 +12,7 @@ class Servico {
 
 	static constraints = {
 		id unique:true
-		descricao nullable:false, unique:true
+		descricao nullable:false
 		status nullable:false
 	}
 	static mapping = {

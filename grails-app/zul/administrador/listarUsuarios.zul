@@ -4,19 +4,17 @@
 <?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
 <?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
 <?link rel="stylesheet" type="text/css" href="/css/bootstrap-min.css"?>
-<?page title="Salãoby-me - Beleza em primeiro lugar!" ?>
+<?page title="Pesquisar Usuarios" ?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul"
 	xmlns:h="http://www.w3.org/1999/xhtml"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
-	<window apply="salaobyme.CadastrarServicoComposer"
-		style="margin:auto" width="900px">
+	<window apply="salaobyme.ListarUsuariosComposer" style="margin:auto" width="900px">
 
 		<include src="../elementos.zul" />
-		
-		<panel id="panel" title="Cadastrar Servico" framable="false"
+		<panel id="panel" title="Pesquisa usuarios" framable="false"
 			width="900px" maximizable="false" border="normal" collapsible="false"
 			draggable="false">
 			<panelchildren>
@@ -24,37 +22,33 @@
 					<grid>
 						<columns>
 							<column>
-								<combobox width="140px" id="cbmSalao" name="cmbSalao" readonly="true"></combobox>
-							</column>
-							<column>
-								<label id="lblErro"/>
 								<label>
-									Entre com um serviço
+									Escreva o Nome do Usuario que Deseja
+									Pesquisar
 								</label>
 							</column>
 							<column>
-								<textbox width="120px" id="descricao" name="descricao" constraint="no empty: Entre com um serviço" placeholder="Nome do serviço"></textbox>
+								<textbox id="txtBuscarUsuarios" />
 							</column>
 							<column>
-								<label value="Entre com o preço: " />
-							</column>
-							<column>
-								<doublebox width="85px" id="preco" placeholder="R$" name="preco" constraint="no empty: Entre com o preço"></doublebox>
-							</column>
-							<column>
-								<button id="btnAdicionarServico" class="btn btn-success">Salvar</button>
+								<button id="btnBuscarUsuarios"
+									class="btn btn-success">
+									Buscar
+								</button>
 							</column>
 						</columns>
 					</grid>
 
 					<div>
-						<listbox id="lstServicos"
+						<listbox id="lstUsuarios"
 							emptyMessage="Nenhum Serviço encontrada">
 
 							<listhead>
-								<listheader sort="auto" label="Serviço" />
-								<listheader sort="auto" label="Preço" />
-								<listheader sort="auto" label="Ativo" />
+								<listheader sort="auto" label="Nome" />
+								<listheader sort="auto" label="Email" />
+								<listheader sort="auto"
+									label="Telefone" />
+								<listheader sort="auto" label="Celular" />
 							</listhead>
 
 						</listbox>
@@ -62,11 +56,8 @@
 				</vlayout>
 			</panelchildren>
 		</panel>
-		
-		<div class="espaco"></div>
-		
-		<include src="../rodape.zul" />
-		
+
+
 	</window>
 
 </zk>

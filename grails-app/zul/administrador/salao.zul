@@ -96,7 +96,41 @@
 				<row>
 				<label
 					value="${message(code:'endereco.estado.label',default:'Estado')}" />
-					<textbox id="estado" placeholder="Estado" constraint="no empty: Entre com o estado" />
+					<combobox id="cbmEstado" placeholder="Selecione" readonly="true" name="cbmEstado">
+						<comboitem value="AC" label="AC"></comboitem>
+						<comboitem value="AL" label="AL"></comboitem>
+						<comboitem value="AP" label="AP"></comboitem>
+						<comboitem value="AM" label="AM"></comboitem>
+						<comboitem value="BA" label="BA"></comboitem>
+						<comboitem value="CE" label="CE"></comboitem>
+						<comboitem value="DF" label="DF"></comboitem>
+						<comboitem value="ES" label="ES"></comboitem>
+						<comboitem value="GO" label="GO"></comboitem>
+						<comboitem value="MA" label="MA"></comboitem>
+						<comboitem value="MT" label="MT"></comboitem>
+						<comboitem value="MG" label="MG"></comboitem>
+						<comboitem value="MS" label="MS"></comboitem>
+						<comboitem value="PA" label="PA"></comboitem>
+						<comboitem value="PB" label="PB"></comboitem>
+						<comboitem value="PR" label="PR"></comboitem>
+						<comboitem value="PE" label="PE"></comboitem>
+						<comboitem value="PI" label="PI"></comboitem>
+						<comboitem value="RJ" label="RJ"></comboitem>
+						<comboitem value="RN" label="RN"></comboitem>
+						<comboitem value="RS" label="RS"></comboitem>
+						<comboitem value="RO" label="RO"></comboitem>
+						<comboitem value="RR" label="RR"></comboitem>
+						<comboitem value="SC" label="SC"></comboitem>
+						<comboitem value="SP" label="SP"></comboitem>
+						<comboitem value="SE" label="SE"></comboitem>
+						<comboitem value="TO" label="TO"></comboitem>
+					</combobox>
+					<hbox>
+						<image src="/images/skin/information.png" tooltip="est"
+							style="cursor: help" />
+						<label value="passe o mouse!"
+							tooltip="est" />
+					</hbox>	
 				</row>
 				
 			</rows>
@@ -142,6 +176,11 @@
 			e segura.
 		</html>
 	</popup>
+	<popup id="est" width="300px">
+		<html>
+			Escolha o estado.
+		</html>
+	</popup>
 	<popup id="sen" width="300px">
 		<html>
 			Entre com sua nova senha. Ela é o seu acesso ao sistema de reservas
@@ -155,9 +194,8 @@
 		</panelchildren>
 		</panel>
 		<div class="espaco"></div>
-<div class="div">
-<html><center>Salãoby.me - Todos os direitos reservados (2013)</center></html>
-</div>
+
+		<include src="../rodape.zul" />
         
 
     </window>

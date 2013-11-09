@@ -17,10 +17,10 @@
 		
 		<vlayout style="float:left">
 			<label>Salao:</label>
-			<combobox readonly="true" id="cbmSalao" name="cbmSalao">
+			<combobox readonly="true" constraint="no empty: Selecione um salão" id="cbmSalao" name="cbmSalao">
 			</combobox>
 			<label>Dia:</label>
-			<combobox readonly="true" id="cbmDia" name="cbmDia">
+			<combobox constraint="no empty: Selecione um dia!" readonly="true" id="cbmDia" name="cbmDia">
 				<comboitem label="Segunda" />
 				<comboitem label="Terça" />
 				<comboitem label="Quarta" />
@@ -29,9 +29,10 @@
 				<comboitem label="Sábado" />
 				<comboitem label="Domingo" />
 			</combobox>
-			<button id="btnAtualizarHorario">Atualizar Horarios</button>
+			<button id="btnAtualizarHorario" class="btn btn-success">Atualizar Horarios</button>
 		</vlayout>
-		<listbox width="250px" height="300px" id="lstHorarios"
+		<div style="float:left">
+		<listbox class="grid" width="250px" height="300px" id="lstHorarios"
 			multiple="true" checkmark="true" style="float:left; margin-top:10px;">
 			<listhead>
 				<listheader label="Horário" />
@@ -148,6 +149,9 @@
 				<listcell label="24:00" />
 			</listitem>
 		</listbox>
+		</div>
+		
+		<include src="rodape.zul" />
 		
 	</window>
 </zk>

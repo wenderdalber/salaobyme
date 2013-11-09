@@ -142,9 +142,8 @@
 		</panel>
       
 		<div class="espaco"></div>
-<div class="div" style="float:left">
-<html><center>Salãoby.me - Todos os direitos reservados (2013)</center></html>
-</div>
+
+		<include src="rodape.zul" />
 
 
     </window>

@@ -104,7 +104,6 @@ class MeuPerfilComposer extends zk.grails.Composer {
 					listheader(label: "E-mail")
 					listheader(label: "Telefone")
 					listheader(label: "Celular")
-					listheader(label: "")
 				}
 			}
 			
@@ -116,13 +115,6 @@ class MeuPerfilComposer extends zk.grails.Composer {
 					listcell(label: proprietario.email)
 					listcell(label: proprietario.telefone)
 					listcell(label: proprietario.celular)
-					listcell(label: ""){
-						hlayout{
-							toolbarbutton(label: 'Excluir', image: "/images/skin/database_delete.png", onClick: {
-								e-> this.excluir(item);
-								} )
-						}
-					}
 				}
 			}
 		}

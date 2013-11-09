@@ -21,49 +21,21 @@
 			<div style="float:right">
 			</div>		
 		</sec:ifAnyGranted>
-
-		<panel id="panel" title="Pesquisa salões" framable="false" width="900px"         
-		maximizable="false" border="normal" collapsible="false" draggable="false">
-        	<panelchildren>
-				<grid id="gridDados">
-				<rows>
-					<row>
-						<label class="lbl" value="Salão" />
-						<textbox id="nome" placeholder="ex: Salão A, Salão B..."/>
-				</row>
-				<row>
-				<label class="lbl" value="Horário" />
-				        <combobox id="cmbHorario" placeholder="Selecione">
-		        		    <comboitem value="Selecione" label="Selecione" />
-		        			<comboitem value="08:00" label="08:00" />
-		        			<comboitem value="09:00" label="09:00" />
-		        			<comboitem value="10:00" label="10:00" />
-		        			<comboitem value="11:00" label="11:00" />       			
-        			</combobox>
-				</row>
-				<row>
-				<label class="lbl" value="Data" />
-					<datebox id="data" placeholder="99/99/9999"/>
-				</row>
-				<row>
-					<label id="lblNomeUsuario" />
-					<label id="lblEmailUsuario" />
-				</row>
-				</rows>
-			</grid>
-			 	<a href="http://localhost:8080/salaobyme/reservar.zul" class="btn btn-large btn-warning">Buscar</a>
-			</panelchildren>
-		</panel>
-
-		<div class="espaco"></div>
 		
+		<div>
+			<html><h4><center>Seja bem vindo ao Salaoby.me - A beleza á um click de distância!</center></h4><br></br><h6>Você pode escolher um salão
+			e o serviço que deseja e reservar um horário! Tudo com apenas alguns cliques e sem nenhumma dor de cabeça!</h6></html>
+		</div>
+		<div>
+			<html>
+				<h2>Salões disponíveis para reservas:</h2>
+			</html>
+		</div>
 		<listbox id="listaSaloes" sclass="grid" emptyMessage="Nenhum salão no sistema!"></listbox>
 		
 		<div class="espaco"></div>
 		
-		<div class="div">
-			<html><center>Salãoby.me - Todos os direitos reservados (2013)</center></html>
-		</div>
+		<include src="rodape.zul" />
 
     </window>
 

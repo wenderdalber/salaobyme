@@ -5,8 +5,7 @@
     <html><a class="brand" href="http://localhost:8080/salaobyme/principal.zul">Salaoby.me</a>
     <ul class="nav">
       <li class="active"><a href="http://localhost:8080/salaobyme/principal.zul">Home</a></li>
-      <li><a href="http://localhost:8080/salaobyme/pesquisa.zul">Pesquisar</a></li>
-      <li><a href="#">Contato</a></li>
+      <li><a href="http://localhost:8080/salaobyme/reservar.zul">Reservar</a></li>
     </ul>
     </html>
   </div>

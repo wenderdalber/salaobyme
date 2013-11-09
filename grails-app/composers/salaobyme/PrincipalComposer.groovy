@@ -116,9 +116,7 @@ class PrincipalComposer extends zk.grails.Composer {
 					listcell(label: salao.endereco.estado)
 					listcell(label: ""){
 						hlayout{
-							button(label: 'Reservar', class: 'btn btn-primary', onClick: {
-								e-> this.reservar(item);
-							} )
+							button(label: 'Reservar', class: 'btn btn-primary', href: "reservar.zul")
 						}
 					}
 				}

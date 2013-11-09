@@ -24,41 +24,42 @@ class CadastrarHorariosComposer extends zk.grails.Composer {
 	
 	@Listen("onClick = #btnAtualizarHorario")
 	void AtualizarHorario(){
-		lstHorarios.getSelectedItems().each { lista->
+			lstHorarios.getSelectedItems().each { lista->
 			horario = new Horario()
 			horario.hora = lista.getLabel().toString()
 			//alert(horario.hora)
 			//horario.save(true)
 			horarios.add(horario)
-		}
-		
-		
-		dia.dia = cbmDia.value
-		dia.horarios = horarios
-		dia.status = "ativo"
-		
-		dia = Dia.findByDia(cbmDia.value)
-		
-		if(dia.dia != cbmDia.value)
-		{
-			salao = Salao.findByNome(cbmSalao.value)
-			salao.diasAbertos.add(dia)
-			
-			dia.salao = salao
-			
-			if(dia.save(true)){
-				alert("Horário Cadastrado com sucesso!")
-			}else
-			{
-				alert("Ocorreu um problema no cadastro")
 			}
+			dia.dia = cbmDia.value
+			dia.horarios = horarios
+			dia.status = "ativo"
+
+			dia = Dia.findByDia(cbmDia.value)
+		
+			//if(dia.dia != cbmDia.value)
+			//{
+				salao = Salao.findByNome(cbmSalao.value.toString())
+				salao.diasAbertos.add(dia)
 			
-			//salao.save(flush:true)
-		}else
-		{
-			Messagebox.show("Esse dia já está cadastrado!")
-		}
+				dia.salao = salao
+				
+				alert(salao.id.toString())
+			
+				if(dia.save(true)){
+				alert("Horário Cadastrado com sucesso!")
+				}else
+				{
+					alert("Ocorreu um problema no cadastro")
+				}
+			
+				//salao.save(flush:true)
+			//}else
+			//{
+				//Messagebox.show("Esse dia já está cadastrado!")
+			//}
 	}
+	
 	void listarSaloes()
 		{
 		ArrayList<Comboitem> saloes = new ArrayList<Comboitem>()

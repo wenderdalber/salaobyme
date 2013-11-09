@@ -27,17 +27,21 @@
 	
 		<div class="espaco"></div>
 		<div id="divAdmin">
-		<label value="Meus Dados" class="btn btn-primary" />
-		<div class="espaco"></div>
-        <listbox style="float:left" id="listaProprietario" width="600px" sclass="grid" emptyMessage="Erro! Você não está cadastrado">
-		</listbox>
-		<div style="float:left" width="230px">
-			<a href="http://localhost:8080/salaobyme/administrador/meuPerfil.zul" class="btn btn-primary">Gerenciar Salão</a>
+		<div style="margin:auto" width="700px">
+			<div><html><center><h4>Gerenciar seu salão:</h4></center></html></div>
+			<a href="http://localhost:8080/salaobyme/cadastrarHorarios.zul" class="btn btn-primary">Cadastrar Horários</a>
 			<a href="http://localhost:8080/salaobyme/administrador/cadastrarServico.zul" class="btn btn-primary">Cadastrar Serviços</a>
 			<a href="http://localhost:8080/salaobyme/administrador/salao.zul" class="btn btn-primary">Cadastrar Salão</a>
-			<a href="http://localhost:8080/salaobyme/administrador/horarios.zul" class="btn btn-primary">Cadastrar Horários</a>
+			<a href="http://localhost:8080/salaobyme/administrador/gerenciarSalao.zul" class="btn btn-primary">Gerenciar Salão</a>
+			<a href="http://localhost:8080/salaobyme/administrador/listarUsuarios.zul" class="btn btn-primary">Listar usuários</a>
+		<div class="espaco"></div>
 		</div>	
-	<panel id="panel" title="Alterar Proprietario" visible="false" framable="true" width="600px"         
+		<div class="espaco"></div>
+		<div><html><h4>Gerenciar seus dados:</h4></html></div>
+		<div class="espaco"></div>
+        <listbox style="float:left" id="listaProprietario" width="900px" sclass="grid" emptyMessage="Erro! Você não está cadastrado">
+		</listbox>
+	<panel id="panel" title="Alterar Proprietario" visible="false" framable="true" width="900px"         
 		maximizable="true" border="normal" collapsible="true" draggable="true">
         <panelchildren>
 		<grid id="gridDados">
@@ -167,11 +171,11 @@
 		</panelchildren>
 		</panel>
 		</div>
-		<div id="divNotAdmin">
-			<html><h2>Não tem permissão Zé!</h2></html>
-		</div>
+		
 		<div class="espaco"></div>
-
+		
+		<include src="../rodape.zul" />
+		
     </window>
 
 </zk>

@@ -15,21 +15,13 @@
     
     <include src="../elementos.zul" />
     <div class="espaco"></div>
+    
     <div width="900px">
-    	<label value="Selecione um Salão: " />
-    	<listbox id="lstSalao" multiple="false" rows="1" mold="select"></listbox>
-    	<button id="btnEditarSalao" class="btn btn-primary">Editar Salão</button>
-    </div>
-    <div width="450px" style="float:left">
-    	<label value="Selecione o serviço: " />
-    	<listbox id="lstServico" multiple="false" rows="1" mold="select"></listbox>
-    </div>
-	<div width="450px" style="float:left">
-    	<label value="Selecione um horário: " />
-    	<listbox id="lstHorario" multiple="false" rows="1" mold="select"></listbox>
+    	<label value="Seu Salão: " />
+    	<listbox id="lstSalao" class="grid" multiple="false" rows="2" mold="paging"></listbox>
     </div>
     
-          <panel id="panel" title="Dados do Salao" framable="true" visible="false" width="900px"         
+        <panel id="panel" title="Dados do Salao" framable="true" visible="false" width="900px"         
 		maximizable="true" border="normal" collapsible="true" draggable="true">
         <panelchildren>
 		<grid id="gridDados">
@@ -109,7 +101,41 @@
 				<row>
 				<label
 					value="${message(code:'endereco.estado.label',default:'Estado')}" />
-					<textbox id="estado" placeholder="Estado" constraint="no empty: Entre com o estado" />
+					<combobox id="cbmEstado" placeholder="Selecione" readonly="true" name="cbmEstado">
+						<comboitem value="AC" label="AC"></comboitem>
+						<comboitem value="AL" label="AL"></comboitem>
+						<comboitem value="AP" label="AP"></comboitem>
+						<comboitem value="AM" label="AM"></comboitem>
+						<comboitem value="BA" label="BA"></comboitem>
+						<comboitem value="CE" label="CE"></comboitem>
+						<comboitem value="DF" label="DF"></comboitem>
+						<comboitem value="ES" label="ES"></comboitem>
+						<comboitem value="GO" label="GO"></comboitem>
+						<comboitem value="MA" label="MA"></comboitem>
+						<comboitem value="MT" label="MT"></comboitem>
+						<comboitem value="MG" label="MG"></comboitem>
+						<comboitem value="MS" label="MS"></comboitem>
+						<comboitem value="PA" label="PA"></comboitem>
+						<comboitem value="PB" label="PB"></comboitem>
+						<comboitem value="PR" label="PR"></comboitem>
+						<comboitem value="PE" label="PE"></comboitem>
+						<comboitem value="PI" label="PI"></comboitem>
+						<comboitem value="RJ" label="RJ"></comboitem>
+						<comboitem value="RN" label="RN"></comboitem>
+						<comboitem value="RS" label="RS"></comboitem>
+						<comboitem value="RO" label="RO"></comboitem>
+						<comboitem value="RR" label="RR"></comboitem>
+						<comboitem value="SC" label="SC"></comboitem>
+						<comboitem value="SP" label="SP"></comboitem>
+						<comboitem value="SE" label="SE"></comboitem>
+						<comboitem value="TO" label="TO"></comboitem>
+					</combobox>
+					<hbox>
+						<image src="/images/skin/information.png" tooltip="est"
+							style="cursor: help" />
+						<label value="passe o mouse!"
+							tooltip="est" />
+					</hbox>	
 				</row>
 				
 			</rows>
@@ -148,6 +174,11 @@
 			Entre com seu telefone.
 		</html>
 	</popup>
+	<popup id="est" width="300px">
+		<html>
+			Escolha o estado.
+		</html>
+	</popup>
 	<popup id="cel" width="300px">
 		<html>
 			Entre com seu celular, através dele você pode receber sms
@@ -164,12 +195,14 @@
 		
 		<button id="btnSalvar" class="btn btn-success">Salvar</button>
 		<button id="btnCancelar" class="btn btn-danger">Cancelar</button>
-		
+		<label id="lblErro" />
+							
 		</panelchildren>
 		</panel>
+       
+    <div class="espaco"></div>
     
-    
-    <listbox id="lstDadosSalao" emptyMessage="Nenhum serviço cadastrado no salao"></listbox>
+    <include src="../rodape.zul" />
     
     </window>
 

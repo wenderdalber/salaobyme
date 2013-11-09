@@ -16,9 +16,15 @@
 	
 	<include src="elementos.zul" />
 	
-	<listbox style="float:left" id="listaReservas" sclass="grid" emptyMessage="Nenhuma reserva encontrada!">
+	<listbox style="float:left" id="listaReservas" multiple="true" sclass="grid" checkmark="true" emptyMessage="Nenhuma reserva encontrada!">
 	</listbox>
-
+	<div height="20px" style="float:left"></div>
+	<div id="divCancelar" style="float:right">
+		<button id="btnCancelarTodos" class="btn btn-danger">Cancelar todos</button>
+	</div>
+	
+	<include src="rodape.zul" />
+	
     </window>
 
 </zk>
